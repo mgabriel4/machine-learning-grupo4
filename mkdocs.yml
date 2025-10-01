@@ -1,8 +1,7 @@
 site_name: Machine Learning
-site_author: Sandmann, H.
-site_url: https://hsandmann.github.io/ml
-repo_url: https://github.com/hsandmann/ml
-repo_name: hsandmann/ml
+site_url: https://mgabriel4.github.io/machine-learning-grupo4/
+repo_url: https://github.com/mgabriel4/machine-learning-grupo4
+repo_name: machine-learning-grupo4
 
 theme:
   name: material
@@ -10,29 +9,29 @@ theme:
     # primary: grey
     # Light mode
     - scheme: default
-      primary: grey
+      primary: deep blue
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: grey
+      primary: deep blue
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      primary: grey
+      scheme: default
+      primary: deep blue
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: grey
+      primary: deep blue
       scheme: slate
       toggle:
         icon: material/toggle-switch
