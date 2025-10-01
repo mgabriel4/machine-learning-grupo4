@@ -12,7 +12,7 @@ Os dados foram coletados de uma empresa fictícia e incluem informações sobre 
 
 A partir desta análise inicial, podemos perceber que não temos valores nulos e que a maioria das variáveis são numéricas, o que facilita a aplicação de algoritmos de machine learning. Porém, teremos que tratar as variáveis categóricas com as técnicas de encoding.
 
-== Output
+=== "Output"
 
     ``` 
         Age Attrition  ... YearsSinceLastPromotion  YearsWithCurrManager
@@ -121,7 +121,7 @@ A partir desta análise inicial, podemos perceber que não temos valores nulos e
     dtype: int64
     ```
 
-== Code
+=== "Code"
 
     ```python
         import pandas as pd
@@ -208,6 +208,8 @@ A partir desta análise inicial, podemos perceber que não temos valores nulos e
         plt.show()
     ```
 
+---
+
 ### Gráficos gerados
 
 Abaixo estão os gráficos gerados a partir da análise exploratória dos dados (EDA):
@@ -232,3 +234,13 @@ Este gráfico de pizza ilustra a distribuição do estado civil entre os funcion
 
 ![OverTime](./img/overtime.png)
 Este gráfico de barras mostra a distribuição de horas extras entre os funcionários. A maioria dos funcionários não faz horas extras, enquanto uma pequena porcentagem trabalha horas extras regularmente. Isso pode indicar áreas de sobrecarga de trabalho.
+
+## Pré-processamento dos Dados
+
+Antes de aplicar os algoritmos de machine learning, é necessário realizar o pré-processamento dos dados. Isso inclui:
+
+* Tratamento de valores ausentes (se houver)
+* Codificação de variáveis categóricas (One-Hot Encoding, Label Encoding)
+* Normalização ou padronização de variáveis numéricas (se necessário)
+* Divisão dos dados em conjuntos de treino e teste
+* Seleção de features
