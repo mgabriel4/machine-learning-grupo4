@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Sandmann, H."><link href=https://hsandmann.github.io/ml/classes/knn/ rel=canonical><link href=../decision_tree/ rel=prev><link href=../kmeans/ rel=next><link rel=icon href=../../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.21"><title>Projeto - Machine Learning</title><link rel=stylesheet href=../../assets/stylesheets/main.2a3383ac.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.06af60db.min.css><style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M64%20480c-35.3%200-64-28.7-64-64V96c0-35.3%2028.7-64%2064-64h320c35.3%200%2064%2028.7%2064%2064v213.5c0%2017-6.7%2033.3-18.7%2045.3L322.7%20461.3c-12%2012-28.3%2018.7-45.3%2018.7zm325.5-176H296c-13.3%200-24%2010.7-24%2024v93.5z%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M384%20512H96c-53%200-96-43-96-96V96C0%2043%2043%200%2096%200h304c26.5%200%2048%2021.5%2048%2048v288c0%2020.9-13.4%2038.7-32%2045.3V448c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032zM96%20384c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032h256v-64zm32-232c0%2013.3%2010.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24H152c-13.3%200-24%2010.7-24%2024m24%2072c-13.3%200-24%2010.7-24%2024s10.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24z%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m-32-352a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200m-8%2064h48c13.3%200%2024%2010.7%2024%2024v88h8c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-80c-13.3%200-24-10.7-24-24s10.7-24%2024-24h24v-64h-24c-13.3%200-24-10.7-24-24s10.7-24%2024-24%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M461.2%2018.9C472.7%2024%20480%2035.4%20480%2048v416c0%2012.6-7.3%2024-18.8%2029.1s-24.8%203.2-34.3-5.1l-46.6-40.7c-43.6-38.1-98.7-60.3-156.4-63V480c0%2017.7-14.3%2032-32%2032h-32c-17.7%200-32-14.3-32-32v-96C57.3%20384%200%20326.7%200%20256s57.3-128%20128-128h84.5c61.8-.2%20121.4-22.7%20167.9-63.3L427%2024c9.4-8.3%2022.9-10.2%2034.3-5.1zM224%20320v.2c70.3%202.7%20137.8%2028.5%20192%2073.4V118.3c-54.2%2044.9-121.7%2070.7-192%2073.4z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M434.8%2070.1c14.3%2010.4%2017.5%2030.4%207.1%2044.7l-256%20352c-5.5%207.6-14%2012.3-23.4%2013.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l101.5%20101.5%20234-321.7c10.4-14.3%2030.4-17.5%2044.7-7.1z%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m0-336c-17.7%200-32%2014.3-32%2032%200%2013.3-10.7%2024-24%2024s-24-10.7-24-24c0-44.2%2035.8-80%2080-80s80%2035.8%2080%2080c0%2047.2-36%2067.2-56%2074.5v3.8c0%2013.3-10.7%2024-24%2024s-24-10.7-24-24v-8.1c0-20.5%2014.8-35.2%2030.1-40.2%206.4-2.1%2013.2-5.5%2018.2-10.3%204.3-4.2%207.7-10%207.7-19.6%200-17.7-14.3-32-32-32zm-32%20192a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200c14.7%200%2028.2%208.1%2035.2%2021l216%20400c6.7%2012.4%206.4%2027.4-.8%2039.5S486.1%20480%20472%20480H40c-14.1%200-27.2-7.4-34.4-19.5s-7.5-27.1-.8-39.5l216-400c7-12.9%2020.5-21%2035.2-21m0%20352a32%2032%200%201%200%200%2064%2032%2032%200%201%200%200-64m0-192c-18.2%200-32.7%2015.5-31.4%2033.7l7.4%20104c.9%2012.5%2011.4%2022.3%2023.9%2022.3%2012.6%200%2023-9.7%2023.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M480-16c6.9%200%2013%204.4%2015.2%2010.9l13.5%2040.4%2040.4%2013.5C555.6%2051%20560%2057.1%20560%2064s-4.4%2013-10.9%2015.2l-40.4%2013.5-13.5%2040.4c-2.2%206.5-8.3%2010.9-15.2%2010.9s-13-4.4-15.2-10.9l-13.5-40.4-40.4-13.5C404.4%2077%20400%2070.9%20400%2064s4.4-13%2010.9-15.2l40.4-13.5%2013.5-40.4C467-11.6%20473.1-16%20480-16M321.4%2097.4c12.5-12.5%2032.8-12.5%2045.3%200l80%2080c12.5%2012.5%2012.5%2032.8%200%2045.3l-10.9%2010.9c7.9%2022%2012.2%2045.7%2012.2%2070.5%200%20114.9-93.1%20208-208%20208S32%20418.9%2032%20304%20125.1%2096%20240%2096c24.7%200%2048.5%204.3%2070.5%2012.3zM144%20304c0-53%2043-96%2096-96%2013.3%200%2024-10.7%2024-24s-10.7-24-24-24c-79.5%200-144%2064.5-144%20144%200%2013.3%2010.7%2024%2024%2024s24-10.7%2024-24%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M416%20427.4c58.5-44%2096-111.6%2096-187.4C512%20107.5%20397.4%200%20256%200S0%20107.5%200%20240c0%2075.8%2037.5%20143.4%2096%20187.4V464c0%2026.5%2021.5%2048%2048%2048h32v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h64v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h32c26.5%200%2048-21.5%2048-48zM96%20256a64%2064%200%201%201%20128%200%2064%2064%200%201%201-128%200m256-64a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M352%200c0-17.7-14.3-32-32-32s-32%2014.3-32%2032v64h-96c-53%200-96%2043-96%2096v224c0%2053%2043%2096%2096%2096h256c53%200%2096-43%2096-96V160c0-53-43-96-96-96h-96zM160%20368c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24M224%20176a48%2048%200%201%201%200%2096%2048%2048%200%201%201%200-96m144%2048a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200m-304%200c0-17.7-14.3-32-32-32S0%20206.3%200%20224v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32zm544-32c-17.7%200-32%2014.3-32%2032v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32v-96c0-17.7-14.3-32-32-32%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M288%200H128c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032v151.5L7.5%20426.3C2.6%20435%200%20444.7%200%20454.7%200%20486.4%2025.6%20512%2057.3%20512h333.4c31.6%200%2057.3-25.6%2057.3-57.3%200-10-2.6-19.8-7.5-28.4L320%20215.5V64c17.7%200%2032-14.3%2032-32S337.7%200%20320%200zm-96%20215.5V64h64v151.5c0%2011.1%202.9%2022.1%208.4%2031.8L306%20320H142l41.6-72.7c5.5-9.7%208.4-20.6%208.4-31.8%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M0%20216C0%20149.7%2053.7%2096%20120%2096h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064H64c-35.3%200-64-28.7-64-64zm256%200c0-66.3%2053.7-120%20120-120h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064h-64c-35.3%200-64-28.7-64-64z%22/%3E%3C/svg%3E');}</style><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../assets/_markdown_exec_pyodide.css><link rel=stylesheet href=../../assets/stylesheets/neoteroi-mkdocs.min.css><link rel=stylesheet href=../../assets/stylesheets/neoteroi-timeline.css><link rel=stylesheet href=../../assets/stylesheets/extra.css><link rel=stylesheet href=../../assets/stylesheets/badge.css><link rel=stylesheet href=../../termynal.css><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><link href=../../assets/stylesheets/glightbox.min.css rel=stylesheet><script src=../../assets/javascripts/glightbox.min.js></script><style id=glightbox-style>
+<!DOCTYPE html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://mgabriel4.github.io/machine-learning-grupo4/classes/knn/ rel=canonical><link href=../decision_tree/ rel=prev><link href=../kmeans/ rel=next><link rel=icon href=../../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.21"><title>Projeto - Machine Learning</title><link rel=stylesheet href=../../assets/stylesheets/main.2a3383ac.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.06af60db.min.css><style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M64%20480c-35.3%200-64-28.7-64-64V96c0-35.3%2028.7-64%2064-64h320c35.3%200%2064%2028.7%2064%2064v213.5c0%2017-6.7%2033.3-18.7%2045.3L322.7%20461.3c-12%2012-28.3%2018.7-45.3%2018.7zm325.5-176H296c-13.3%200-24%2010.7-24%2024v93.5z%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M384%20512H96c-53%200-96-43-96-96V96C0%2043%2043%200%2096%200h304c26.5%200%2048%2021.5%2048%2048v288c0%2020.9-13.4%2038.7-32%2045.3V448c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032zM96%20384c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032h256v-64zm32-232c0%2013.3%2010.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24H152c-13.3%200-24%2010.7-24%2024m24%2072c-13.3%200-24%2010.7-24%2024s10.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24z%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m-32-352a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200m-8%2064h48c13.3%200%2024%2010.7%2024%2024v88h8c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-80c-13.3%200-24-10.7-24-24s10.7-24%2024-24h24v-64h-24c-13.3%200-24-10.7-24-24s10.7-24%2024-24%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M461.2%2018.9C472.7%2024%20480%2035.4%20480%2048v416c0%2012.6-7.3%2024-18.8%2029.1s-24.8%203.2-34.3-5.1l-46.6-40.7c-43.6-38.1-98.7-60.3-156.4-63V480c0%2017.7-14.3%2032-32%2032h-32c-17.7%200-32-14.3-32-32v-96C57.3%20384%200%20326.7%200%20256s57.3-128%20128-128h84.5c61.8-.2%20121.4-22.7%20167.9-63.3L427%2024c9.4-8.3%2022.9-10.2%2034.3-5.1zM224%20320v.2c70.3%202.7%20137.8%2028.5%20192%2073.4V118.3c-54.2%2044.9-121.7%2070.7-192%2073.4z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M434.8%2070.1c14.3%2010.4%2017.5%2030.4%207.1%2044.7l-256%20352c-5.5%207.6-14%2012.3-23.4%2013.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l101.5%20101.5%20234-321.7c10.4-14.3%2030.4-17.5%2044.7-7.1z%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m0-336c-17.7%200-32%2014.3-32%2032%200%2013.3-10.7%2024-24%2024s-24-10.7-24-24c0-44.2%2035.8-80%2080-80s80%2035.8%2080%2080c0%2047.2-36%2067.2-56%2074.5v3.8c0%2013.3-10.7%2024-24%2024s-24-10.7-24-24v-8.1c0-20.5%2014.8-35.2%2030.1-40.2%206.4-2.1%2013.2-5.5%2018.2-10.3%204.3-4.2%207.7-10%207.7-19.6%200-17.7-14.3-32-32-32zm-32%20192a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200c14.7%200%2028.2%208.1%2035.2%2021l216%20400c6.7%2012.4%206.4%2027.4-.8%2039.5S486.1%20480%20472%20480H40c-14.1%200-27.2-7.4-34.4-19.5s-7.5-27.1-.8-39.5l216-400c7-12.9%2020.5-21%2035.2-21m0%20352a32%2032%200%201%200%200%2064%2032%2032%200%201%200%200-64m0-192c-18.2%200-32.7%2015.5-31.4%2033.7l7.4%20104c.9%2012.5%2011.4%2022.3%2023.9%2022.3%2012.6%200%2023-9.7%2023.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M480-16c6.9%200%2013%204.4%2015.2%2010.9l13.5%2040.4%2040.4%2013.5C555.6%2051%20560%2057.1%20560%2064s-4.4%2013-10.9%2015.2l-40.4%2013.5-13.5%2040.4c-2.2%206.5-8.3%2010.9-15.2%2010.9s-13-4.4-15.2-10.9l-13.5-40.4-40.4-13.5C404.4%2077%20400%2070.9%20400%2064s4.4-13%2010.9-15.2l40.4-13.5%2013.5-40.4C467-11.6%20473.1-16%20480-16M321.4%2097.4c12.5-12.5%2032.8-12.5%2045.3%200l80%2080c12.5%2012.5%2012.5%2032.8%200%2045.3l-10.9%2010.9c7.9%2022%2012.2%2045.7%2012.2%2070.5%200%20114.9-93.1%20208-208%20208S32%20418.9%2032%20304%20125.1%2096%20240%2096c24.7%200%2048.5%204.3%2070.5%2012.3zM144%20304c0-53%2043-96%2096-96%2013.3%200%2024-10.7%2024-24s-10.7-24-24-24c-79.5%200-144%2064.5-144%20144%200%2013.3%2010.7%2024%2024%2024s24-10.7%2024-24%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M416%20427.4c58.5-44%2096-111.6%2096-187.4C512%20107.5%20397.4%200%20256%200S0%20107.5%200%20240c0%2075.8%2037.5%20143.4%2096%20187.4V464c0%2026.5%2021.5%2048%2048%2048h32v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h64v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h32c26.5%200%2048-21.5%2048-48zM96%20256a64%2064%200%201%201%20128%200%2064%2064%200%201%201-128%200m256-64a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M352%200c0-17.7-14.3-32-32-32s-32%2014.3-32%2032v64h-96c-53%200-96%2043-96%2096v224c0%2053%2043%2096%2096%2096h256c53%200%2096-43%2096-96V160c0-53-43-96-96-96h-96zM160%20368c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24M224%20176a48%2048%200%201%201%200%2096%2048%2048%200%201%201%200-96m144%2048a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200m-304%200c0-17.7-14.3-32-32-32S0%20206.3%200%20224v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32zm544-32c-17.7%200-32%2014.3-32%2032v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32v-96c0-17.7-14.3-32-32-32%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M288%200H128c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032v151.5L7.5%20426.3C2.6%20435%200%20444.7%200%20454.7%200%20486.4%2025.6%20512%2057.3%20512h333.4c31.6%200%2057.3-25.6%2057.3-57.3%200-10-2.6-19.8-7.5-28.4L320%20215.5V64c17.7%200%2032-14.3%2032-32S337.7%200%20320%200zm-96%20215.5V64h64v151.5c0%2011.1%202.9%2022.1%208.4%2031.8L306%20320H142l41.6-72.7c5.5-9.7%208.4-20.6%208.4-31.8%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.1%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M0%20216C0%20149.7%2053.7%2096%20120%2096h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064H64c-35.3%200-64-28.7-64-64zm256%200c0-66.3%2053.7-120%20120-120h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064h-64c-35.3%200-64-28.7-64-64z%22/%3E%3C/svg%3E');}</style><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../assets/_markdown_exec_pyodide.css><link rel=stylesheet href=../../assets/stylesheets/neoteroi-mkdocs.min.css><link rel=stylesheet href=../../assets/stylesheets/neoteroi-timeline.css><link rel=stylesheet href=../../assets/stylesheets/extra.css><link rel=stylesheet href=../../assets/stylesheets/badge.css><link rel=stylesheet href=../../termynal.css><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><link href=../../assets/stylesheets/glightbox.min.css rel=stylesheet><script src=../../assets/javascripts/glightbox.min.js></script><style id=glightbox-style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -8,7 +8,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#key-concepts class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class="md-header md-header--shadow" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component=logo> <img src=../../assets/images/logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Machine Learning </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Projeto </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_0> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg> </label> <input class=md-option data-md-color-media=(prefers-color-scheme) data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to light mode" type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_2 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme=slate data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to system preference" type=radio name=__palette id=__palette_3> <label class="md-header__button md-icon" title="Switch to system preference" for=__palette_0 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/hsandmann/ml title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg> </div> <div class=md-source__repository> hsandmann/ml </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component=logo> <img src=../../assets/images/logo.png alt=logo> </a> Machine Learning </label> <div class=md-nav__source> <a href=https://github.com/hsandmann/ml title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg> </div> <div class=md-source__repository> hsandmann/ml </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> <span class=md-ellipsis> Home </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> 1. Decision Tree </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> 1. Decision Tree </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../decision_tree/ class=md-nav__link> <span class=md-ellipsis> Projeto </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_3 checked> <label class=md-nav__link for=__nav_3 id=__nav_3_label tabindex=0> <span class=md-ellipsis> 2. KNN </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=true> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> 2. KNN </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> <span class=md-ellipsis> Projeto </span> <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> <span class=md-ellipsis> Projeto </span> </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#key-concepts class=md-nav__link> <span class=md-ellipsis> Key Concepts </span> </a> </li> <li class=md-nav__item> <a href=#mathematical-foundation class=md-nav__link> <span class=md-ellipsis> Mathematical Foundation </span> </a> <nav class=md-nav aria-label="Mathematical Foundation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#example-classification class=md-nav__link> <span class=md-ellipsis> Example: Classification </span> </a> </li> <li class=md-nav__item> <a href=#weighted-knn class=md-nav__link> <span class=md-ellipsis> Weighted KNN </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#visualizing-knn class=md-nav__link> <span class=md-ellipsis> Visualizing KNN </span> </a> <nav class=md-nav aria-label="Visualizing KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#plot-decision-boundary class=md-nav__link> <span class=md-ellipsis> Plot: Decision Boundary </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#pros-and-cons-of-knn class=md-nav__link> <span class=md-ellipsis> Pros and Cons of KNN </span> </a> <nav class=md-nav aria-label="Pros and Cons of KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#pros class=md-nav__link> <span class=md-ellipsis> Pros </span> </a> </li> <li class=md-nav__item> <a href=#cons class=md-nav__link> <span class=md-ellipsis> Cons </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#knn-implementation class=md-nav__link> <span class=md-ellipsis> KNN Implementation </span> </a> <nav class=md-nav aria-label="KNN Implementation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#from-scratch class=md-nav__link> <span class=md-ellipsis> From Scratch </span> </a> </li> <li class=md-nav__item> <a href=#using-scikit-learn class=md-nav__link> <span class=md-ellipsis> Using Scikit-Learn </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#exercicio class=md-nav__link> <span class=md-ellipsis> Exercício </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4> <label class=md-nav__link for=__nav_4 id=__nav_4_label tabindex=0> <span class=md-ellipsis> 3. K-Means </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> 3. K-Means </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../kmeans/ class=md-nav__link> <span class=md-ellipsis> Projeto </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#key-concepts class=md-nav__link> <span class=md-ellipsis> Key Concepts </span> </a> </li> <li class=md-nav__item> <a href=#mathematical-foundation class=md-nav__link> <span class=md-ellipsis> Mathematical Foundation </span> </a> <nav class=md-nav aria-label="Mathematical Foundation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#example-classification class=md-nav__link> <span class=md-ellipsis> Example: Classification </span> </a> </li> <li class=md-nav__item> <a href=#weighted-knn class=md-nav__link> <span class=md-ellipsis> Weighted KNN </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#visualizing-knn class=md-nav__link> <span class=md-ellipsis> Visualizing KNN </span> </a> <nav class=md-nav aria-label="Visualizing KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#plot-decision-boundary class=md-nav__link> <span class=md-ellipsis> Plot: Decision Boundary </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#pros-and-cons-of-knn class=md-nav__link> <span class=md-ellipsis> Pros and Cons of KNN </span> </a> <nav class=md-nav aria-label="Pros and Cons of KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#pros class=md-nav__link> <span class=md-ellipsis> Pros </span> </a> </li> <li class=md-nav__item> <a href=#cons class=md-nav__link> <span class=md-ellipsis> Cons </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#knn-implementation class=md-nav__link> <span class=md-ellipsis> KNN Implementation </span> </a> <nav class=md-nav aria-label="KNN Implementation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#from-scratch class=md-nav__link> <span class=md-ellipsis> From Scratch </span> </a> </li> <li class=md-nav__item> <a href=#using-scikit-learn class=md-nav__link> <span class=md-ellipsis> Using Scikit-Learn </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#exercicio class=md-nav__link> <span class=md-ellipsis> Exercício </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1>Projeto</h1> <p><strong>K-Nearest Neighbors (KNN)</strong> is a simple, versatile, and non-parametric machine learning algorithm used for classification and regression tasks. It operates on the principle of similarity, predicting the label or value of a data point based on the majority class or average of its <em>k</em> nearest neighbors in the feature space. KNN is intuitive and effective for small datasets or when interpretability is key.</p> <h3 id=key-concepts>Key Concepts</h3> <ul> <li> <p><strong>Instance-Based Learning</strong>: KNN is a lazy learning algorithm, meaning no explicit training phase is required. It stores the entire dataset and performs calculations at prediction time.</p> </li> <li> <p><strong>Distance Metric</strong>: The algorithm measures the distance between data points to identify the nearest neighbors. Common metrics include:</p> <table> <thead> <tr> <th>Metric</th> <th>Formula</th> </tr> </thead> <tbody> <tr> <td>Euclidean distance</td> <td><span class=arithmatex>\( \displaystyle \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \)</span></td> </tr> <tr> <td>Manhattan distance</td> <td><span class=arithmatex>\( \displaystyle \sum_{i=1}^n \|x_i - y_i\| \)</span></td> </tr> <tr> <td>Minkowski distance</td> <td><span class=arithmatex>\( \displaystyle \left( \sum_{i=1}^n \|x_i - y_i\|^p \right)^{1/p} \)</span></td> </tr> </tbody> </table> </li> <li> <p><strong>K Value</strong>: The number of neighbors considered. A small <em>k</em> can be sensitive to noise, while a large <em>k</em> smooths predictions but may dilute patterns.</p> </li> <li> <p><strong>Decision Rule</strong>:</p> <ul> <li><strong>Classification</strong>: The majority class among the <em>k</em> neighbors determines the predicted class.</li> <li><strong>Regression</strong>: The average (or weighted average) of the <em>k</em> neighbors' values is used.</li> </ul> </li> </ul> <h2 id=mathematical-foundation>Mathematical Foundation</h2> <p>KNN relies on distance calculations to find neighbors. For a data point <span class=arithmatex>\( x \)</span>, the algorithm: 1. Computes the distance to all points in the dataset using a chosen metric (e.g., Euclidean distance). 2. Selects the <em>k</em> closest points. 3. For classification, assigns the class with the most votes among the <em>k</em> neighbors. For regression, computes the mean of their values.</p> <h3 id=example-classification>Example: Classification</h3> <p>Given a dataset <span class=arithmatex>\( D = \{(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)\} \)</span>, where <span class=arithmatex>\( x_i \)</span> is a feature vector and <span class=arithmatex>\( y_i \)</span> is the class label, predict the class of a new point <span class=arithmatex>\( x \)</span>:</p> <ul> <li>Calculate distances <span class=arithmatex>\( d(x, x_i) \)</span> for all <span class=arithmatex>\( i \)</span>.</li> <li>Sort distances and select the <em>k</em> smallest.</li> <li>Count the class labels of these <em>k</em> points and assign the majority class to <span class=arithmatex>\( x \)</span>.</li> </ul> <h3 id=weighted-knn>Weighted KNN</h3> <p>In weighted KNN, neighbors contribute to the prediction based on their distance. Closer neighbors have higher influence, often weighted by the inverse of their distance:</p> <div class=arithmatex>\[ w_i = \frac{1}{d(x, x_i)} \]</div> <p>For regression, the prediction is:</p> <div class=arithmatex>\[ \hat{y} = \frac{\sum_{i=1}^k w_i y_i}{\sum_{i=1}^k w_i} \]</div> <h2 id=visualizing-knn>Visualizing KNN</h2> <p>To illustrate, consider a 2D dataset with two classes (blue circles and red triangles). For a new point (green star), KNN identifies the <em>k</em> nearest points and assigns the majority class.</p> <figure> <p><a class=glightbox data-type=image data-width=auto data-height=auto href=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/KnnClassification.svg/1200px-KnnClassification.svg.png data-desc-position=bottom><img alt="KNN Classification Example" src=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/KnnClassification.svg/1200px-KnnClassification.svg.png width=70%></a></p> <figcaption> <p>Figure: KNN with k=3. The green star is classified based on the majority class (blue circles) among its three nearest neighbors.</p> </figcaption> </figure> <p>For regression, imagine predicting a continuous value (e.g., house price) based on the average of the <em>k</em> nearest houses’ prices.</p> <h3 id=plot-decision-boundary>Plot: Decision Boundary</h3> <p>KNN’s decision boundary is non-linear and depends on the data distribution. Below is an example of decision boundaries for different <em>k</em> values:</p> <figure> <p><a class=glightbox data-type=image data-width=auto data-height=auto href=https://scikit-learn.org/stable/_images/sphx_glr_plot_classification_001.png data-desc-position=bottom><img alt="KNN Decision Boundary" src=https://scikit-learn.org/stable/_images/sphx_glr_plot_classification_001.png></a></p> <figcaption> <p>Figure: Decision boundaries for k=1, k=5, and k=15. Smaller k leads to more complex boundaries, while larger k smooths them.</p> </figcaption> </figure> <h2 id=pros-and-cons-of-knn>Pros and Cons of KNN</h2> <h3 id=pros>Pros</h3> <ul> <li><strong>Simplicity</strong>: Easy to understand and implement.</li> <li><strong>Non-Parametric</strong>: Makes no assumptions about data distribution, suitable for non-linear data.</li> <li><strong>Versatility</strong>: Works for both classification and regression.</li> <li><strong>Adaptability</strong>: Can handle multi-class problems and varying data types with appropriate distance metrics.</li> </ul> <h3 id=cons>Cons</h3> <ul> <li><strong>Computational Cost</strong>: Slow for large datasets, as it requires calculating distances for every prediction.</li> <li><strong>Memory Intensive</strong>: Stores the entire dataset, which can be problematic for big data.</li> <li><strong>Sensitive to Noise</strong>: Outliers or irrelevant features can degrade performance.</li> <li><strong>Curse of Dimensionality</strong>: Performance drops in high-dimensional spaces due to sparse data.</li> <li><strong>Choosing K</strong>: Requires careful tuning of <em>k</em> and distance metric to balance bias and variance.</li> </ul> <h2 id=knn-implementation>KNN Implementation</h2> <p>Below are two implementations of KNN: one from scratch and one using Python’s scikit-learn library.</p> <h3 id=from-scratch>From Scratch</h3> <p>This implementation includes a basic KNN classifier using Euclidean distance.</p> <div class="tabbed-set tabbed-alternate" data-tabs=1:2><input checked id=__tabbed_1_1 name=__tabbed_1 type=radio><input id=__tabbed_1_2 name=__tabbed_1 type=radio><div class=tabbed-labels><label for=__tabbed_1_1>Result</label><label for=__tabbed_1_2>Code</label></div> <div class=tabbed-content> <div class=tabbed-block> <p>Accuracy: 1.00 </p> </div> <div class=tabbed-block> <div class="language-python highlight"><pre><span></span><code><span id=__span-0-1><a id=__codelineno-0-1 name=__codelineno-0-1 href=#__codelineno-0-1></a><span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
+        </style></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=deep-blue data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#key-concepts class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class="md-header md-header--shadow" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component=logo> <img src=../../assets/images/logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Machine Learning </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Projeto </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=deep-blue data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_0> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg> </label> <input class=md-option data-md-color-media=(prefers-color-scheme) data-md-color-scheme=default data-md-color-primary=deep-blue data-md-color-accent=indigo aria-label="Switch to light mode" type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_2 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme=default data-md-color-primary=deep-blue data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme=slate data-md-color-primary=deep-blue data-md-color-accent=indigo aria-label="Switch to system preference" type=radio name=__palette id=__palette_3> <label class="md-header__button md-icon" title="Switch to system preference" for=__palette_0 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/mgabriel4/machine-learning-grupo4 title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg> </div> <div class=md-source__repository> machine-learning-grupo4 </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component=logo> <img src=../../assets/images/logo.png alt=logo> </a> Machine Learning </label> <div class=md-nav__source> <a href=https://github.com/mgabriel4/machine-learning-grupo4 title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg> </div> <div class=md-source__repository> machine-learning-grupo4 </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> <span class=md-ellipsis> Home </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> 1. Decision Tree </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> 1. Decision Tree </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../decision_tree/ class=md-nav__link> <span class=md-ellipsis> Projeto </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_3 checked> <label class=md-nav__link for=__nav_3 id=__nav_3_label tabindex=0> <span class=md-ellipsis> 2. KNN </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=true> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> 2. KNN </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> <span class=md-ellipsis> Projeto </span> <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> <span class=md-ellipsis> Projeto </span> </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#key-concepts class=md-nav__link> <span class=md-ellipsis> Key Concepts </span> </a> </li> <li class=md-nav__item> <a href=#mathematical-foundation class=md-nav__link> <span class=md-ellipsis> Mathematical Foundation </span> </a> <nav class=md-nav aria-label="Mathematical Foundation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#example-classification class=md-nav__link> <span class=md-ellipsis> Example: Classification </span> </a> </li> <li class=md-nav__item> <a href=#weighted-knn class=md-nav__link> <span class=md-ellipsis> Weighted KNN </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#visualizing-knn class=md-nav__link> <span class=md-ellipsis> Visualizing KNN </span> </a> <nav class=md-nav aria-label="Visualizing KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#plot-decision-boundary class=md-nav__link> <span class=md-ellipsis> Plot: Decision Boundary </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#pros-and-cons-of-knn class=md-nav__link> <span class=md-ellipsis> Pros and Cons of KNN </span> </a> <nav class=md-nav aria-label="Pros and Cons of KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#pros class=md-nav__link> <span class=md-ellipsis> Pros </span> </a> </li> <li class=md-nav__item> <a href=#cons class=md-nav__link> <span class=md-ellipsis> Cons </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#knn-implementation class=md-nav__link> <span class=md-ellipsis> KNN Implementation </span> </a> <nav class=md-nav aria-label="KNN Implementation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#from-scratch class=md-nav__link> <span class=md-ellipsis> From Scratch </span> </a> </li> <li class=md-nav__item> <a href=#using-scikit-learn class=md-nav__link> <span class=md-ellipsis> Using Scikit-Learn </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#exercicio class=md-nav__link> <span class=md-ellipsis> Exercício </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4> <label class=md-nav__link for=__nav_4 id=__nav_4_label tabindex=0> <span class=md-ellipsis> 3. K-Means </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> 3. K-Means </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../kmeans/ class=md-nav__link> <span class=md-ellipsis> Projeto </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#key-concepts class=md-nav__link> <span class=md-ellipsis> Key Concepts </span> </a> </li> <li class=md-nav__item> <a href=#mathematical-foundation class=md-nav__link> <span class=md-ellipsis> Mathematical Foundation </span> </a> <nav class=md-nav aria-label="Mathematical Foundation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#example-classification class=md-nav__link> <span class=md-ellipsis> Example: Classification </span> </a> </li> <li class=md-nav__item> <a href=#weighted-knn class=md-nav__link> <span class=md-ellipsis> Weighted KNN </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#visualizing-knn class=md-nav__link> <span class=md-ellipsis> Visualizing KNN </span> </a> <nav class=md-nav aria-label="Visualizing KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#plot-decision-boundary class=md-nav__link> <span class=md-ellipsis> Plot: Decision Boundary </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#pros-and-cons-of-knn class=md-nav__link> <span class=md-ellipsis> Pros and Cons of KNN </span> </a> <nav class=md-nav aria-label="Pros and Cons of KNN"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#pros class=md-nav__link> <span class=md-ellipsis> Pros </span> </a> </li> <li class=md-nav__item> <a href=#cons class=md-nav__link> <span class=md-ellipsis> Cons </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#knn-implementation class=md-nav__link> <span class=md-ellipsis> KNN Implementation </span> </a> <nav class=md-nav aria-label="KNN Implementation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#from-scratch class=md-nav__link> <span class=md-ellipsis> From Scratch </span> </a> </li> <li class=md-nav__item> <a href=#using-scikit-learn class=md-nav__link> <span class=md-ellipsis> Using Scikit-Learn </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#exercicio class=md-nav__link> <span class=md-ellipsis> Exercício </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1>Projeto</h1> <p><strong>K-Nearest Neighbors (KNN)</strong> is a simple, versatile, and non-parametric machine learning algorithm used for classification and regression tasks. It operates on the principle of similarity, predicting the label or value of a data point based on the majority class or average of its <em>k</em> nearest neighbors in the feature space. KNN is intuitive and effective for small datasets or when interpretability is key.</p> <h3 id=key-concepts>Key Concepts</h3> <ul> <li> <p><strong>Instance-Based Learning</strong>: KNN is a lazy learning algorithm, meaning no explicit training phase is required. It stores the entire dataset and performs calculations at prediction time.</p> </li> <li> <p><strong>Distance Metric</strong>: The algorithm measures the distance between data points to identify the nearest neighbors. Common metrics include:</p> <table> <thead> <tr> <th>Metric</th> <th>Formula</th> </tr> </thead> <tbody> <tr> <td>Euclidean distance</td> <td><span class=arithmatex>\( \displaystyle \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \)</span></td> </tr> <tr> <td>Manhattan distance</td> <td><span class=arithmatex>\( \displaystyle \sum_{i=1}^n \|x_i - y_i\| \)</span></td> </tr> <tr> <td>Minkowski distance</td> <td><span class=arithmatex>\( \displaystyle \left( \sum_{i=1}^n \|x_i - y_i\|^p \right)^{1/p} \)</span></td> </tr> </tbody> </table> </li> <li> <p><strong>K Value</strong>: The number of neighbors considered. A small <em>k</em> can be sensitive to noise, while a large <em>k</em> smooths predictions but may dilute patterns.</p> </li> <li> <p><strong>Decision Rule</strong>:</p> <ul> <li><strong>Classification</strong>: The majority class among the <em>k</em> neighbors determines the predicted class.</li> <li><strong>Regression</strong>: The average (or weighted average) of the <em>k</em> neighbors' values is used.</li> </ul> </li> </ul> <h2 id=mathematical-foundation>Mathematical Foundation</h2> <p>KNN relies on distance calculations to find neighbors. For a data point <span class=arithmatex>\( x \)</span>, the algorithm: 1. Computes the distance to all points in the dataset using a chosen metric (e.g., Euclidean distance). 2. Selects the <em>k</em> closest points. 3. For classification, assigns the class with the most votes among the <em>k</em> neighbors. For regression, computes the mean of their values.</p> <h3 id=example-classification>Example: Classification</h3> <p>Given a dataset <span class=arithmatex>\( D = \{(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)\} \)</span>, where <span class=arithmatex>\( x_i \)</span> is a feature vector and <span class=arithmatex>\( y_i \)</span> is the class label, predict the class of a new point <span class=arithmatex>\( x \)</span>:</p> <ul> <li>Calculate distances <span class=arithmatex>\( d(x, x_i) \)</span> for all <span class=arithmatex>\( i \)</span>.</li> <li>Sort distances and select the <em>k</em> smallest.</li> <li>Count the class labels of these <em>k</em> points and assign the majority class to <span class=arithmatex>\( x \)</span>.</li> </ul> <h3 id=weighted-knn>Weighted KNN</h3> <p>In weighted KNN, neighbors contribute to the prediction based on their distance. Closer neighbors have higher influence, often weighted by the inverse of their distance:</p> <div class=arithmatex>\[ w_i = \frac{1}{d(x, x_i)} \]</div> <p>For regression, the prediction is:</p> <div class=arithmatex>\[ \hat{y} = \frac{\sum_{i=1}^k w_i y_i}{\sum_{i=1}^k w_i} \]</div> <h2 id=visualizing-knn>Visualizing KNN</h2> <p>To illustrate, consider a 2D dataset with two classes (blue circles and red triangles). For a new point (green star), KNN identifies the <em>k</em> nearest points and assigns the majority class.</p> <figure> <p><a class=glightbox data-type=image data-width=auto data-height=auto href=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/KnnClassification.svg/1200px-KnnClassification.svg.png data-desc-position=bottom><img alt="KNN Classification Example" src=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/KnnClassification.svg/1200px-KnnClassification.svg.png width=70%></a></p> <figcaption> <p>Figure: KNN with k=3. The green star is classified based on the majority class (blue circles) among its three nearest neighbors.</p> </figcaption> </figure> <p>For regression, imagine predicting a continuous value (e.g., house price) based on the average of the <em>k</em> nearest houses’ prices.</p> <h3 id=plot-decision-boundary>Plot: Decision Boundary</h3> <p>KNN’s decision boundary is non-linear and depends on the data distribution. Below is an example of decision boundaries for different <em>k</em> values:</p> <figure> <p><a class=glightbox data-type=image data-width=auto data-height=auto href=https://scikit-learn.org/stable/_images/sphx_glr_plot_classification_001.png data-desc-position=bottom><img alt="KNN Decision Boundary" src=https://scikit-learn.org/stable/_images/sphx_glr_plot_classification_001.png></a></p> <figcaption> <p>Figure: Decision boundaries for k=1, k=5, and k=15. Smaller k leads to more complex boundaries, while larger k smooths them.</p> </figcaption> </figure> <h2 id=pros-and-cons-of-knn>Pros and Cons of KNN</h2> <h3 id=pros>Pros</h3> <ul> <li><strong>Simplicity</strong>: Easy to understand and implement.</li> <li><strong>Non-Parametric</strong>: Makes no assumptions about data distribution, suitable for non-linear data.</li> <li><strong>Versatility</strong>: Works for both classification and regression.</li> <li><strong>Adaptability</strong>: Can handle multi-class problems and varying data types with appropriate distance metrics.</li> </ul> <h3 id=cons>Cons</h3> <ul> <li><strong>Computational Cost</strong>: Slow for large datasets, as it requires calculating distances for every prediction.</li> <li><strong>Memory Intensive</strong>: Stores the entire dataset, which can be problematic for big data.</li> <li><strong>Sensitive to Noise</strong>: Outliers or irrelevant features can degrade performance.</li> <li><strong>Curse of Dimensionality</strong>: Performance drops in high-dimensional spaces due to sparse data.</li> <li><strong>Choosing K</strong>: Requires careful tuning of <em>k</em> and distance metric to balance bias and variance.</li> </ul> <h2 id=knn-implementation>KNN Implementation</h2> <p>Below are two implementations of KNN: one from scratch and one using Python’s scikit-learn library.</p> <h3 id=from-scratch>From Scratch</h3> <p>This implementation includes a basic KNN classifier using Euclidean distance.</p> <div class="tabbed-set tabbed-alternate" data-tabs=1:2><input checked id=__tabbed_1_1 name=__tabbed_1 type=radio><input id=__tabbed_1_2 name=__tabbed_1 type=radio><div class=tabbed-labels><label for=__tabbed_1_1>Result</label><label for=__tabbed_1_2>Code</label></div> <div class=tabbed-content> <div class=tabbed-block> <p>Accuracy: 1.00 </p> </div> <div class=tabbed-block> <div class="language-python highlight"><pre><span></span><code><span id=__span-0-1><a id=__codelineno-0-1 name=__codelineno-0-1 href=#__codelineno-0-1></a><span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
 </span><span id=__span-0-2><a id=__codelineno-0-2 name=__codelineno-0-2 href=#__codelineno-0-2></a><span class=kn>from</span><span class=w> </span><span class=nn>sklearn.datasets</span><span class=w> </span><span class=kn>import</span> <span class=n>make_classification</span>
 </span><span id=__span-0-3><a id=__codelineno-0-3 name=__codelineno-0-3 href=#__codelineno-0-3></a><span class=kn>from</span><span class=w> </span><span class=nn>sklearn.model_selection</span><span class=w> </span><span class=kn>import</span> <span class=n>train_test_split</span>
 </span><span id=__span-0-4><a id=__codelineno-0-4 name=__codelineno-0-4 href=#__codelineno-0-4></a><span class=kn>from</span><span class=w> </span><span class=nn>sklearn.metrics</span><span class=w> </span><span class=kn>import</span> <span class=n>accuracy_score</span>
@@ -47,7 +47,7 @@
 </span><span id=__span-0-37><a id=__codelineno-0-37 name=__codelineno-0-37 href=#__codelineno-0-37></a><span class=n>knn</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>)</span>
 </span><span id=__span-0-38><a id=__codelineno-0-38 name=__codelineno-0-38 href=#__codelineno-0-38></a><span class=n>predictions</span> <span class=o>=</span> <span class=n>knn</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>X_test</span><span class=p>)</span>
 </span><span id=__span-0-39><a id=__codelineno-0-39 name=__codelineno-0-39 href=#__codelineno-0-39></a><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Accuracy: </span><span class=si>{</span><span class=n>accuracy_score</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span><span class=w> </span><span class=n>predictions</span><span class=p>)</span><span class=si>:</span><span class=s2>.2f</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
-</span></code></pre></div> </div> </div> </div> <h3 id=using-scikit-learn>Using Scikit-Learn</h3> <div class="tabbed-set tabbed-alternate" data-tabs=2:2><input checked id=__tabbed_2_1 name=__tabbed_2 type=radio><input id=__tabbed_2_2 name=__tabbed_2 type=radio><div class=tabbed-labels><label for=__tabbed_2_1>Result</label><label for=__tabbed_2_2>Code</label></div> <div class=tabbed-content> <div class=tabbed-block> <p>Accuracy: 1.00 <!--?xml version="1.0" encoding="utf-8" standalone="no"?--> <svg xmlns:xlink=http://www.w3.org/1999/xlink width=864pt height=720pt viewbox="0 0 864 720" xmlns=http://www.w3.org/2000/svg version=1.1> <metadata> <rdf:rdf xmlns:dc=http://purl.org/dc/elements/1.1/ xmlns:cc=http://creativecommons.org/ns# xmlns:rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#> <cc:work> <dc:type rdf:resource=http://purl.org/dc/dcmitype/StillImage></dc:type> <dc:date>2025-09-30T23:43:25.181872</dc:date> <dc:format>image/svg+xml</dc:format> <dc:creator> <cc:agent> <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title> </cc:agent> </dc:creator> </cc:work> </rdf:rdf> </metadata> <defs> <style type=text/css>*{stroke-linejoin: round; stroke-linecap: butt}</style> </defs> <g id=figure_1> <g id=patch_1> <path d="M 0 720 
+</span></code></pre></div> </div> </div> </div> <h3 id=using-scikit-learn>Using Scikit-Learn</h3> <div class="tabbed-set tabbed-alternate" data-tabs=2:2><input checked id=__tabbed_2_1 name=__tabbed_2 type=radio><input id=__tabbed_2_2 name=__tabbed_2 type=radio><div class=tabbed-labels><label for=__tabbed_2_1>Result</label><label for=__tabbed_2_2>Code</label></div> <div class=tabbed-content> <div class=tabbed-block> <p>Accuracy: 1.00 <!--?xml version="1.0" encoding="utf-8" standalone="no"?--> <svg xmlns:xlink=http://www.w3.org/1999/xlink width=864pt height=720pt viewbox="0 0 864 720" xmlns=http://www.w3.org/2000/svg version=1.1> <metadata> <rdf:rdf xmlns:dc=http://purl.org/dc/elements/1.1/ xmlns:cc=http://creativecommons.org/ns# xmlns:rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#> <cc:work> <dc:type rdf:resource=http://purl.org/dc/dcmitype/StillImage></dc:type> <dc:date>2025-10-01T17:51:17.445022</dc:date> <dc:format>image/svg+xml</dc:format> <dc:creator> <cc:agent> <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title> </cc:agent> </dc:creator> </cc:work> </rdf:rdf> </metadata> <defs> <style type=text/css>*{stroke-linejoin: round; stroke-linecap: butt}</style> </defs> <g id=figure_1> <g id=patch_1> <path d="M 0 720 
 L 864 720 
 L 864 0 
 L 0 0 
@@ -1068,7 +1068,7 @@ L 108 637.728532
 L 108 639.264266 
 L 108 640.8 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #c82227; fill-opacity: 0.3"></path> <path d="M 110.224585 483.924765 
+" clip-path=url(#p6b18f9446c) style="fill: #c82227; fill-opacity: 0.3"></path> <path d="M 110.224585 483.924765 
 L 112.449169 483.924765 
 L 114.673754 483.924765 
 L 116.564651 482.619391 
@@ -1895,7 +1895,7 @@ L 110.224585 483.694404
 L 108 483.694404 
 L 108 483.924765 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #f57547; fill-opacity: 0.3"></path> <path d="M 110.224585 483.694404 
+" clip-path=url(#p6b18f9446c) style="fill: #f57547; fill-opacity: 0.3"></path> <path d="M 110.224585 483.694404 
 L 112.449169 483.694404 
 L 114.673754 483.694404 
 L 116.230963 482.619391 
@@ -2722,7 +2722,7 @@ L 110.224585 483.464044
 L 108 483.464044 
 L 108 483.694404 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #feca7c; fill-opacity: 0.3"></path> <path d="M 110.224585 483.464044 
+" clip-path=url(#p6b18f9446c) style="fill: #feca7c; fill-opacity: 0.3"></path> <path d="M 110.224585 483.464044 
 L 112.449169 483.464044 
 L 114.673754 483.464044 
 L 115.897276 482.619391 
@@ -3549,7 +3549,7 @@ L 110.224585 483.233684
 L 108 483.233684 
 L 108 483.464044 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #feffc0; fill-opacity: 0.3"></path> <path d="M 110.224585 483.233684 
+" clip-path=url(#p6b18f9446c) style="fill: #feffc0; fill-opacity: 0.3"></path> <path d="M 110.224585 483.233684 
 L 112.449169 483.233684 
 L 114.673754 483.233684 
 L 115.563588 482.619391 
@@ -4376,7 +4376,7 @@ L 110.224585 483.003324
 L 108 483.003324 
 L 108 483.233684 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #c9e8f2; fill-opacity: 0.3"></path> <path d="M 110.224585 483.003324 
+" clip-path=url(#p6b18f9446c) style="fill: #c9e8f2; fill-opacity: 0.3"></path> <path d="M 110.224585 483.003324 
 L 112.449169 483.003324 
 L 114.673754 483.003324 
 L 115.2299 482.619391 
@@ -5203,7 +5203,7 @@ L 110.224585 482.772964
 L 108 482.772964 
 L 108 483.003324 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #7ab2d4; fill-opacity: 0.3"></path> <path d="M 110.224585 482.772964 
+" clip-path=url(#p6b18f9446c) style="fill: #7ab2d4; fill-opacity: 0.3"></path> <path d="M 110.224585 482.772964 
 L 112.449169 482.772964 
 L 114.673754 482.772964 
 L 114.896213 482.619391 
@@ -6346,7 +6346,7 @@ L 108 481.083657
 L 108 482.619391 
 L 108 482.772964 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #3f62ab; fill-opacity: 0.3"></path> </g> <g id=PathCollection_1> <path d="M 451.346214 453.36847 
+" clip-path=url(#p6b18f9446c) style="fill: #3f62ab; fill-opacity: 0.3"></path> </g> <g id=PathCollection_1> <path d="M 451.346214 453.36847 
 C 452.67223 453.36847 453.944114 452.841638 454.881748 451.904004 
 C 455.819383 450.966369 456.346214 449.694485 456.346214 448.36847 
 C 456.346214 447.042454 455.819383 445.77057 454.881748 444.832936 
@@ -6356,7 +6356,7 @@ C 446.873046 445.77057 446.346214 447.042454 446.346214 448.36847
 C 446.346214 449.694485 446.873046 450.966369 447.81068 451.904004 
 C 448.748315 452.841638 450.020199 453.36847 451.346214 453.36847 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 392.405537 501.215556 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 392.405537 501.215556 
 C 393.731552 501.215556 395.003436 500.688724 395.941071 499.75109 
 C 396.878705 498.813455 397.405537 497.541571 397.405537 496.215556 
 C 397.405537 494.88954 396.878705 493.617656 395.941071 492.680022 
@@ -6366,7 +6366,7 @@ C 387.932368 493.617656 387.405537 494.88954 387.405537 496.215556
 C 387.405537 497.541571 387.932368 498.813455 388.870003 499.75109 
 C 389.807637 500.688724 391.079521 501.215556 392.405537 501.215556 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 595.725027 203.087074 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 595.725027 203.087074 
 L 598.225027 200.587074 
 L 600.725027 203.087074 
 L 603.225027 200.587074 
@@ -6379,7 +6379,7 @@ L 593.225027 195.587074
 L 595.725027 198.087074 
 L 593.225027 200.587074 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 378.52076 499.118064 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 378.52076 499.118064 
 C 379.846776 499.118064 381.11866 498.591232 382.056294 497.653598 
 C 382.993929 496.715963 383.52076 495.444079 383.52076 494.118064 
 C 383.52076 492.792048 382.993929 491.520165 382.056294 490.58253 
@@ -6389,7 +6389,7 @@ C 374.047592 491.520165 373.52076 492.792048 373.52076 494.118064
 C 373.52076 495.444079 374.047592 496.715963 374.985227 497.653598 
 C 375.922861 498.591232 377.194745 499.118064 378.52076 499.118064 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 379.891257 497.926122 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 379.891257 497.926122 
 C 381.217272 497.926122 382.489156 497.39929 383.426791 496.461656 
 C 384.364425 495.524021 384.891257 494.252137 384.891257 492.926122 
 C 384.891257 491.600106 384.364425 490.328222 383.426791 489.390588 
@@ -6399,7 +6399,7 @@ C 375.418088 490.328222 374.891257 491.600106 374.891257 492.926122
 C 374.891257 494.252137 375.418088 495.524021 376.355723 496.461656 
 C 377.293358 497.39929 378.565241 497.926122 379.891257 497.926122 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 385.192608 485.281809 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 385.192608 485.281809 
 C 386.518624 485.281809 387.790508 484.754978 388.728142 483.817343 
 C 389.665777 482.879709 390.192608 481.607825 390.192608 480.281809 
 C 390.192608 478.955794 389.665777 477.68391 388.728142 476.746275 
@@ -6409,7 +6409,7 @@ C 380.71944 477.68391 380.192608 478.955794 380.192608 480.281809
 C 380.192608 481.607825 380.71944 482.879709 381.657074 483.817343 
 C 382.594709 484.754978 383.866593 485.281809 385.192608 485.281809 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 376.628154 495.84736 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 376.628154 495.84736 
 C 377.954169 495.84736 379.226053 495.320528 380.163688 494.382893 
 C 381.101322 493.445259 381.628154 492.173375 381.628154 490.84736 
 C 381.628154 489.521344 381.101322 488.24946 380.163688 487.311826 
@@ -6419,7 +6419,7 @@ C 372.154985 488.24946 371.628154 489.521344 371.628154 490.84736
 C 371.628154 492.173375 372.154985 493.445259 373.09262 494.382893 
 C 374.030255 495.320528 375.302138 495.84736 376.628154 495.84736 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 326.05586 379.949188 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 326.05586 379.949188 
 L 328.55586 377.449188 
 L 331.05586 379.949188 
 L 333.55586 377.449188 
@@ -6432,7 +6432,7 @@ L 323.55586 372.449188
 L 326.05586 374.949188 
 L 323.55586 377.449188 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 461.847312 440.792707 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 461.847312 440.792707 
 C 463.173328 440.792707 464.445211 440.265876 465.382846 439.328241 
 C 466.320481 438.390606 466.847312 437.118723 466.847312 435.792707 
 C 466.847312 434.466692 466.320481 433.194808 465.382846 432.257173 
@@ -6442,7 +6442,7 @@ C 457.374144 433.194808 456.847312 434.466692 456.847312 435.792707
 C 456.847312 437.118723 457.374144 438.390606 458.311778 439.328241 
 C 459.249413 440.265876 460.521297 440.792707 461.847312 440.792707 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 470.820345 288.491443 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 470.820345 288.491443 
 L 473.320345 285.991443 
 L 475.820345 288.491443 
 L 478.320345 285.991443 
@@ -6455,7 +6455,7 @@ L 468.320345 280.991443
 L 470.820345 283.491443 
 L 468.320345 285.991443 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 385.846546 489.978553 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 385.846546 489.978553 
 C 387.172562 489.978553 388.444446 489.451721 389.38208 488.514087 
 C 390.319715 487.576452 390.846546 486.304568 390.846546 484.978553 
 C 390.846546 483.652537 390.319715 482.380654 389.38208 481.443019 
@@ -6465,7 +6465,7 @@ C 381.373378 482.380654 380.846546 483.652537 380.846546 484.978553
 C 380.846546 486.304568 381.373378 487.576452 382.311012 488.514087 
 C 383.248647 489.451721 384.520531 489.978553 385.846546 489.978553 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 452.089566 451.411114 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 452.089566 451.411114 
 C 453.415582 451.411114 454.687466 450.884283 455.6251 449.946648 
 C 456.562735 449.009014 457.089566 447.73713 457.089566 446.411114 
 C 457.089566 445.085099 456.562735 443.813215 455.6251 442.87558 
@@ -6475,7 +6475,7 @@ C 447.616398 443.813215 447.089566 445.085099 447.089566 446.411114
 C 447.089566 447.73713 447.616398 449.009014 448.554032 449.946648 
 C 449.491667 450.884283 450.763551 451.411114 452.089566 451.411114 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 394.423509 332.123368 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 394.423509 332.123368 
 L 396.923509 329.623368 
 L 399.423509 332.123368 
 L 401.923509 329.623368 
@@ -6488,7 +6488,7 @@ L 391.923509 324.623368
 L 394.423509 327.123368 
 L 391.923509 329.623368 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 559.307267 233.947023 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 559.307267 233.947023 
 L 561.807267 231.447023 
 L 564.307267 233.947023 
 L 566.807267 231.447023 
@@ -6501,7 +6501,7 @@ L 556.807267 226.447023
 L 559.307267 228.947023 
 L 556.807267 231.447023 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 655.255345 177.671419 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 655.255345 177.671419 
 L 657.755345 175.171419 
 L 660.255345 177.671419 
 L 662.755345 175.171419 
@@ -6514,7 +6514,7 @@ L 652.755345 170.171419
 L 655.255345 172.671419 
 L 652.755345 175.171419 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 426.154912 474.046264 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 426.154912 474.046264 
 C 427.480927 474.046264 428.752811 473.519432 429.690446 472.581798 
 C 430.62808 471.644163 431.154912 470.372279 431.154912 469.046264 
 C 431.154912 467.720248 430.62808 466.448365 429.690446 465.51073 
@@ -6524,7 +6524,7 @@ C 421.681744 466.448365 421.154912 467.720248 421.154912 469.046264
 C 421.154912 470.372279 421.681744 471.644163 422.619378 472.581798 
 C 423.557013 473.519432 424.828896 474.046264 426.154912 474.046264 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 429.6301 460.915181 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 429.6301 460.915181 
 C 430.956115 460.915181 432.227999 460.38835 433.165633 459.450715 
 C 434.103268 458.51308 434.6301 457.241197 434.6301 455.915181 
 C 434.6301 454.589166 434.103268 453.317282 433.165633 452.379647 
@@ -6534,7 +6534,7 @@ C 425.156931 453.317282 424.6301 454.589166 424.6301 455.915181
 C 424.6301 457.241197 425.156931 458.51308 426.094566 459.450715 
 C 427.0322 460.38835 428.304084 460.915181 429.6301 460.915181 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 323.701676 378.494479 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 323.701676 378.494479 
 L 326.201676 375.994479 
 L 328.701676 378.494479 
 L 331.201676 375.994479 
@@ -6547,7 +6547,7 @@ L 321.201676 370.994479
 L 323.701676 373.494479 
 L 321.201676 375.994479 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 376.608053 351.766409 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 376.608053 351.766409 
 L 379.108053 349.266409 
 L 381.608053 351.766409 
 L 384.108053 349.266409 
@@ -6560,7 +6560,7 @@ L 374.108053 344.266409
 L 376.608053 346.766409 
 L 374.108053 349.266409 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 502.506326 274.748301 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 502.506326 274.748301 
 L 505.006326 272.248301 
 L 507.506326 274.748301 
 L 510.006326 272.248301 
@@ -6573,7 +6573,7 @@ L 500.006326 267.248301
 L 502.506326 269.748301 
 L 500.006326 272.248301 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 443.601831 462.928101 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 443.601831 462.928101 
 C 444.927846 462.928101 446.19973 462.401269 447.137365 461.463635 
 C 448.074999 460.526 448.601831 459.254116 448.601831 457.928101 
 C 448.601831 456.602085 448.074999 455.330202 447.137365 454.392567 
@@ -6583,7 +6583,7 @@ C 439.128662 455.330202 438.601831 456.602085 438.601831 457.928101
 C 438.601831 459.254116 439.128662 460.526 440.066297 461.463635 
 C 441.003931 462.401269 442.275815 462.928101 443.601831 462.928101 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 654.04943 176.719783 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 654.04943 176.719783 
 L 656.54943 174.219783 
 L 659.04943 176.719783 
 L 661.54943 174.219783 
@@ -6596,7 +6596,7 @@ L 651.54943 169.219783
 L 654.04943 171.719783 
 L 651.54943 174.219783 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 524.702838 423.407465 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 524.702838 423.407465 
 C 526.028854 423.407465 527.300737 422.880634 528.238372 421.942999 
 C 529.176007 421.005365 529.702838 419.733481 529.702838 418.407465 
 C 529.702838 417.08145 529.176007 415.809566 528.238372 414.871931 
@@ -6606,7 +6606,7 @@ C 520.22967 415.809566 519.702838 417.08145 519.702838 418.407465
 C 519.702838 419.733481 520.22967 421.005365 521.167304 421.942999 
 C 522.104939 422.880634 523.376823 423.407465 524.702838 423.407465 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 366.421706 349.17757 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 366.421706 349.17757 
 L 368.921706 346.67757 
 L 371.421706 349.17757 
 L 373.921706 346.67757 
@@ -6619,7 +6619,7 @@ L 363.921706 341.67757
 L 366.421706 344.17757 
 L 363.921706 346.67757 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 654.533037 172.457691 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 654.533037 172.457691 
 L 657.033037 169.957691 
 L 659.533037 172.457691 
 L 662.033037 169.957691 
@@ -6632,7 +6632,7 @@ L 652.033037 164.957691
 L 654.533037 167.457691 
 L 652.033037 169.957691 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 337.232479 372.58886 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 337.232479 372.58886 
 L 339.732479 370.08886 
 L 342.232479 372.58886 
 L 344.732479 370.08886 
@@ -6645,7 +6645,7 @@ L 334.732479 365.08886
 L 337.232479 367.58886 
 L 334.732479 370.08886 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 437.901694 310.58054 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 437.901694 310.58054 
 L 440.401694 308.08054 
 L 442.901694 310.58054 
 L 445.401694 308.08054 
@@ -6658,7 +6658,7 @@ L 435.401694 303.08054
 L 437.901694 305.58054 
 L 435.401694 308.08054 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 409.373116 486.185089 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 409.373116 486.185089 
 C 410.699131 486.185089 411.971015 485.658257 412.908649 484.720623 
 C 413.846284 483.782988 414.373116 482.511104 414.373116 481.185089 
 C 414.373116 479.859073 413.846284 478.58719 412.908649 477.649555 
@@ -6668,7 +6668,7 @@ C 404.899947 478.58719 404.373116 479.859073 404.373116 481.185089
 C 404.373116 482.511104 404.899947 483.782988 405.837582 484.720623 
 C 406.775216 485.658257 408.0471 486.185089 409.373116 486.185089 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 313.796303 530.188642 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 313.796303 530.188642 
 C 315.122318 530.188642 316.394202 529.66181 317.331837 528.724176 
 C 318.269471 527.786541 318.796303 526.514657 318.796303 525.188642 
 C 318.796303 523.862626 318.269471 522.590742 317.331837 521.653108 
@@ -6678,7 +6678,7 @@ C 309.323134 522.590742 308.796303 523.862626 308.796303 525.188642
 C 308.796303 526.514657 309.323134 527.786541 310.260769 528.724176 
 C 311.198404 529.66181 312.470287 530.188642 313.796303 530.188642 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 525.342027 423.407891 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 525.342027 423.407891 
 C 526.668042 423.407891 527.939926 422.881059 528.877561 421.943425 
 C 529.815195 421.00579 530.342027 419.733906 530.342027 418.407891 
 C 530.342027 417.081875 529.815195 415.809991 528.877561 414.872357 
@@ -6688,7 +6688,7 @@ C 520.868858 415.809991 520.342027 417.081875 520.342027 418.407891
 C 520.342027 419.733906 520.868858 421.00579 521.806493 421.943425 
 C 522.744127 422.881059 524.016011 423.407891 525.342027 423.407891 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 400.276117 476.695369 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 400.276117 476.695369 
 C 401.602133 476.695369 402.874017 476.168537 403.811651 475.230903 
 C 404.749286 474.293268 405.276117 473.021384 405.276117 471.695369 
 C 405.276117 470.369353 404.749286 469.097469 403.811651 468.159835 
@@ -6698,7 +6698,7 @@ C 395.802949 469.097469 395.276117 470.369353 395.276117 471.695369
 C 395.276117 473.021384 395.802949 474.293268 396.740583 475.230903 
 C 397.678218 476.168537 398.950102 476.695369 400.276117 476.695369 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 494.413532 439.22696 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 494.413532 439.22696 
 C 495.739548 439.22696 497.011432 438.700128 497.949066 437.762493 
 C 498.886701 436.824859 499.413532 435.552975 499.413532 434.22696 
 C 499.413532 432.900944 498.886701 431.62906 497.949066 430.691426 
@@ -6708,7 +6708,7 @@ C 489.940364 431.62906 489.413532 432.900944 489.413532 434.22696
 C 489.413532 435.552975 489.940364 436.824859 490.877999 437.762493 
 C 491.815633 438.700128 493.087517 439.22696 494.413532 439.22696 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 557.969963 235.883397 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 557.969963 235.883397 
 L 560.469963 233.383397 
 L 562.969963 235.883397 
 L 565.469963 233.383397 
@@ -6721,7 +6721,7 @@ L 555.469963 228.383397
 L 557.969963 230.883397 
 L 555.469963 233.383397 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 412.572535 485.6489 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 412.572535 485.6489 
 C 413.898551 485.6489 415.170434 485.122068 416.108069 484.184434 
 C 417.045703 483.246799 417.572535 481.974916 417.572535 480.6489 
 C 417.572535 479.322885 417.045703 478.051001 416.108069 477.113366 
@@ -6731,7 +6731,7 @@ C 408.099367 478.051001 407.572535 479.322885 407.572535 480.6489
 C 407.572535 481.974916 408.099367 483.246799 409.037001 484.184434 
 C 409.974636 485.122068 411.24652 485.6489 412.572535 485.6489 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 381.511753 505.761068 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 381.511753 505.761068 
 C 382.837768 505.761068 384.109652 505.234236 385.047286 504.296601 
 C 385.984921 503.358967 386.511753 502.087083 386.511753 500.761068 
 C 386.511753 499.435052 385.984921 498.163168 385.047286 497.225534 
@@ -6741,7 +6741,7 @@ C 377.038584 498.163168 376.511753 499.435052 376.511753 500.761068
 C 376.511753 502.087083 377.038584 503.358967 377.976219 504.296601 
 C 378.913853 505.234236 380.185737 505.761068 381.511753 505.761068 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 427.302856 468.687571 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 427.302856 468.687571 
 C 428.628871 468.687571 429.900755 468.160739 430.838389 467.223105 
 C 431.776024 466.28547 432.302856 465.013586 432.302856 463.687571 
 C 432.302856 462.361555 431.776024 461.089671 430.838389 460.152037 
@@ -6751,7 +6751,7 @@ C 422.829687 461.089671 422.302856 462.361555 422.302856 463.687571
 C 422.302856 465.013586 422.829687 466.28547 423.767322 467.223105 
 C 424.704956 468.160739 425.97684 468.687571 427.302856 468.687571 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 569.622973 218.987108 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 569.622973 218.987108 
 L 572.122973 216.487108 
 L 574.622973 218.987108 
 L 577.122973 216.487108 
@@ -6764,7 +6764,7 @@ L 567.122973 211.487108
 L 569.622973 213.987108 
 L 567.122973 216.487108 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 434.375254 310.401108 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 434.375254 310.401108 
 L 436.875254 307.901108 
 L 439.375254 310.401108 
 L 441.875254 307.901108 
@@ -6777,7 +6777,7 @@ L 431.875254 302.901108
 L 434.375254 305.401108 
 L 431.875254 307.901108 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 399.658672 486.366339 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 399.658672 486.366339 
 C 400.984688 486.366339 402.256572 485.839507 403.194206 484.901873 
 C 404.131841 483.964238 404.658672 482.692354 404.658672 481.366339 
 C 404.658672 480.040323 404.131841 478.768439 403.194206 477.830805 
@@ -6787,7 +6787,7 @@ C 395.185504 478.768439 394.658672 480.040323 394.658672 481.366339
 C 394.658672 482.692354 395.185504 483.964238 396.123138 484.901873 
 C 397.060773 485.839507 398.332657 486.366339 399.658672 486.366339 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 521.348248 426.348986 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 521.348248 426.348986 
 C 522.674263 426.348986 523.946147 425.822155 524.883782 424.88452 
 C 525.821416 423.946886 526.348248 422.675002 526.348248 421.348986 
 C 526.348248 420.022971 525.821416 418.751087 524.883782 417.813452 
@@ -6797,7 +6797,7 @@ C 516.875079 418.751087 516.348248 420.022971 516.348248 421.348986
 C 516.348248 422.675002 516.875079 423.946886 517.812714 424.88452 
 C 518.750348 425.822155 520.022232 426.348986 521.348248 426.348986 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 499.686349 269.829327 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 499.686349 269.829327 
 L 502.186349 267.329327 
 L 504.686349 269.829327 
 L 507.186349 267.329327 
@@ -6810,7 +6810,7 @@ L 497.186349 262.329327
 L 499.686349 264.829327 
 L 497.186349 267.329327 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 329.528432 384.40321 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 329.528432 384.40321 
 L 332.028432 381.90321 
 L 334.528432 384.40321 
 L 337.028432 381.90321 
@@ -6823,7 +6823,7 @@ L 327.028432 376.90321
 L 329.528432 379.40321 
 L 327.028432 381.90321 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 303.05768 397.424206 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 303.05768 397.424206 
 L 305.55768 394.924206 
 L 308.05768 397.424206 
 L 310.55768 394.924206 
@@ -6836,7 +6836,7 @@ L 300.55768 389.924206
 L 303.05768 392.424206 
 L 300.55768 394.924206 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.493933 302.871999 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.493933 302.871999 
 L 451.993933 300.371999 
 L 454.493933 302.871999 
 L 456.993933 300.371999 
@@ -6849,7 +6849,7 @@ L 446.993933 295.371999
 L 449.493933 297.871999 
 L 446.993933 300.371999 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 458.231315 453.898862 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 458.231315 453.898862 
 C 459.557331 453.898862 460.829215 453.37203 461.766849 452.434395 
 C 462.704484 451.496761 463.231315 450.224877 463.231315 448.898862 
 C 463.231315 447.572846 462.704484 446.300962 461.766849 445.363328 
@@ -6859,7 +6859,7 @@ C 453.758147 446.300962 453.231315 447.572846 453.231315 448.898862
 C 453.231315 450.224877 453.758147 451.496761 454.695781 452.434395 
 C 455.633416 453.37203 456.9053 453.898862 458.231315 453.898862 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 225.775026 444.067196 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 225.775026 444.067196 
 L 228.275026 441.567196 
 L 230.775026 444.067196 
 L 233.275026 441.567196 
@@ -6872,7 +6872,7 @@ L 223.275026 436.567196
 L 225.775026 439.067196 
 L 223.275026 441.567196 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 371.607677 494.267818 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 371.607677 494.267818 
 C 372.933692 494.267818 374.205576 493.740986 375.143211 492.803352 
 C 376.080845 491.865717 376.607677 490.593833 376.607677 489.267818 
 C 376.607677 487.941802 376.080845 486.669918 375.143211 485.732284 
@@ -6882,7 +6882,7 @@ C 367.134508 486.669918 366.607677 487.941802 366.607677 489.267818
 C 366.607677 490.593833 367.134508 491.865717 368.072143 492.803352 
 C 369.009777 493.740986 370.281661 494.267818 371.607677 494.267818 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 426.461964 475.985565 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 426.461964 475.985565 
 C 427.787979 475.985565 429.059863 475.458733 429.997498 474.521099 
 C 430.935132 473.583464 431.461964 472.31158 431.461964 470.985565 
 C 431.461964 469.659549 430.935132 468.387665 429.997498 467.450031 
@@ -6892,7 +6892,7 @@ C 421.988796 468.387665 421.461964 469.659549 421.461964 470.985565
 C 421.461964 472.31158 421.988796 473.583464 422.92643 474.521099 
 C 423.864065 475.458733 425.135948 475.985565 426.461964 475.985565 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 473.91046 449.598581 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 473.91046 449.598581 
 C 475.236475 449.598581 476.508359 449.071749 477.445994 448.134115 
 C 478.383628 447.19648 478.91046 445.924596 478.91046 444.598581 
 C 478.91046 443.272565 478.383628 442.000681 477.445994 441.063047 
@@ -6902,7 +6902,7 @@ C 469.437291 442.000681 468.91046 443.272565 468.91046 444.598581
 C 468.91046 445.924596 469.437291 447.19648 470.374926 448.134115 
 C 471.312561 449.071749 472.584444 449.598581 473.91046 449.598581 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 475.489597 452.297366 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 475.489597 452.297366 
 C 476.815613 452.297366 478.087497 451.770534 479.025131 450.8329 
 C 479.962766 449.895265 480.489597 448.623381 480.489597 447.297366 
 C 480.489597 445.97135 479.962766 444.699466 479.025131 443.761832 
@@ -6912,7 +6912,7 @@ C 471.016429 444.699466 470.489597 445.97135 470.489597 447.297366
 C 470.489597 448.623381 471.016429 449.895265 471.954063 450.8329 
 C 472.891698 451.770534 474.163582 452.297366 475.489597 452.297366 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 393.702556 342.212593 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 393.702556 342.212593 
 L 396.202556 339.712593 
 L 398.702556 342.212593 
 L 401.202556 339.712593 
@@ -6925,7 +6925,7 @@ L 391.202556 334.712593
 L 393.702556 337.212593 
 L 391.202556 339.712593 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.468525 303.325781 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.468525 303.325781 
 L 451.968525 300.825781 
 L 454.468525 303.325781 
 L 456.968525 300.825781 
@@ -6938,7 +6938,7 @@ L 446.968525 295.825781
 L 449.468525 298.325781 
 L 446.968525 300.825781 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 431.043689 479.675375 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 431.043689 479.675375 
 C 432.369705 479.675375 433.641588 479.148543 434.579223 478.210909 
 C 435.516858 477.273274 436.043689 476.00139 436.043689 474.675375 
 C 436.043689 473.349359 435.516858 472.077475 434.579223 471.139841 
@@ -6948,7 +6948,7 @@ C 426.570521 472.077475 426.043689 473.349359 426.043689 474.675375
 C 426.043689 476.00139 426.570521 477.273274 427.508155 478.210909 
 C 428.44579 479.148543 429.717674 479.675375 431.043689 479.675375 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 412.289687 483.892798 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 412.289687 483.892798 
 C 413.615702 483.892798 414.887586 483.365966 415.825221 482.428332 
 C 416.762855 481.490697 417.289687 480.218813 417.289687 478.892798 
 C 417.289687 477.566782 416.762855 476.294898 415.825221 475.357264 
@@ -6958,7 +6958,7 @@ C 407.816518 476.294898 407.289687 477.566782 407.289687 478.892798
 C 407.289687 480.218813 407.816518 481.490697 408.754153 482.428332 
 C 409.691787 483.365966 410.963671 483.892798 412.289687 483.892798 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 402.347477 490.733305 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 402.347477 490.733305 
 C 403.673493 490.733305 404.945377 490.206473 405.883011 489.268839 
 C 406.820646 488.331204 407.347477 487.05932 407.347477 485.733305 
 C 407.347477 484.407289 406.820646 483.135405 405.883011 482.197771 
@@ -6968,7 +6968,7 @@ C 397.874309 483.135405 397.347477 484.407289 397.347477 485.733305
 C 397.347477 487.05932 397.874309 488.331204 398.811943 489.268839 
 C 399.749578 490.206473 401.021462 490.733305 402.347477 490.733305 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 473.67241 288.807142 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 473.67241 288.807142 
 L 476.17241 286.307142 
 L 478.67241 288.807142 
 L 481.17241 286.307142 
@@ -6981,7 +6981,7 @@ L 471.17241 281.307142
 L 473.67241 283.807142 
 L 471.17241 286.307142 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.899047 469.012171 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.899047 469.012171 
 C 451.225062 469.012171 452.496946 468.48534 453.434581 467.547705 
 C 454.372215 466.61007 454.899047 465.338187 454.899047 464.012171 
 C 454.899047 462.686156 454.372215 461.414272 453.434581 460.476637 
@@ -6991,7 +6991,7 @@ C 445.425878 461.414272 444.899047 462.686156 444.899047 464.012171
 C 444.899047 465.338187 445.425878 466.61007 446.363513 467.547705 
 C 447.301147 468.48534 448.573031 469.012171 449.899047 469.012171 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 393.926366 342.120055 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 393.926366 342.120055 
 L 396.426366 339.620055 
 L 398.926366 342.120055 
 L 401.426366 339.620055 
@@ -7004,7 +7004,7 @@ L 391.426366 334.620055
 L 393.926366 337.120055 
 L 391.426366 339.620055 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 322.778016 388.246932 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 322.778016 388.246932 
 L 325.278016 385.746932 
 L 327.778016 388.246932 
 L 330.278016 385.746932 
@@ -7017,7 +7017,7 @@ L 320.278016 380.746932
 L 322.778016 383.246932 
 L 320.278016 385.746932 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 516.319505 416.114761 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 516.319505 416.114761 
 C 517.645521 416.114761 518.917405 415.58793 519.855039 414.650295 
 C 520.792674 413.712661 521.319505 412.440777 521.319505 411.114761 
 C 521.319505 409.788746 520.792674 408.516862 519.855039 407.579228 
@@ -7027,7 +7027,7 @@ C 511.846337 408.516862 511.319505 409.788746 511.319505 411.114761
 C 511.319505 412.440777 511.846337 413.712661 512.783971 414.650295 
 C 513.721606 415.58793 514.99349 416.114761 516.319505 416.114761 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 391.355755 330.820182 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 391.355755 330.820182 
 L 393.855755 328.320182 
 L 396.355755 330.820182 
 L 398.855755 328.320182 
@@ -7040,7 +7040,7 @@ L 388.855755 323.320182
 L 391.355755 325.820182 
 L 388.855755 328.320182 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 471.375146 291.376916 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 471.375146 291.376916 
 L 473.875146 288.876916 
 L 476.375146 291.376916 
 L 478.875146 288.876916 
@@ -7053,7 +7053,7 @@ L 468.875146 283.876916
 L 471.375146 286.376916 
 L 468.875146 288.876916 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 401.622616 338.027339 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 401.622616 338.027339 
 L 404.122616 335.527339 
 L 406.622616 338.027339 
 L 409.122616 335.527339 
@@ -7066,7 +7066,7 @@ L 399.122616 330.527339
 L 401.622616 333.027339 
 L 399.122616 335.527339 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 428.566348 320.377348 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 428.566348 320.377348 
 L 431.066348 317.877348 
 L 433.566348 320.377348 
 L 436.066348 317.877348 
@@ -7079,7 +7079,7 @@ L 426.066348 312.877348
 L 428.566348 315.377348 
 L 426.066348 317.877348 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 357.084727 516.447992 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 357.084727 516.447992 
 C 358.410743 516.447992 359.682627 515.92116 360.620261 514.983526 
 C 361.557896 514.045891 362.084727 512.774007 362.084727 511.447992 
 C 362.084727 510.121976 361.557896 508.850093 360.620261 507.912458 
@@ -7089,7 +7089,7 @@ C 352.611559 508.850093 352.084727 510.121976 352.084727 511.447992
 C 352.084727 512.774007 352.611559 514.045891 353.549194 514.983526 
 C 354.486828 515.92116 355.758712 516.447992 357.084727 516.447992 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 571.415931 221.757042 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 571.415931 221.757042 
 L 573.915931 219.257042 
 L 576.415931 221.757042 
 L 578.915931 219.257042 
@@ -7102,7 +7102,7 @@ L 568.915931 214.257042
 L 571.415931 216.757042 
 L 568.915931 219.257042 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 513.251976 262.020244 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 513.251976 262.020244 
 L 515.751976 259.520244 
 L 518.251976 262.020244 
 L 520.751976 259.520244 
@@ -7115,7 +7115,7 @@ L 510.751976 254.520244
 L 513.251976 257.020244 
 L 510.751976 259.520244 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 397.888977 337.655532 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 397.888977 337.655532 
 L 400.388977 335.155532 
 L 402.888977 337.655532 
 L 405.388977 335.155532 
@@ -7128,7 +7128,7 @@ L 395.388977 330.155532
 L 397.888977 332.655532 
 L 395.388977 335.155532 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 519.059997 420.782826 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 519.059997 420.782826 
 C 520.386013 420.782826 521.657897 420.255995 522.595531 419.31836 
 C 523.533166 418.380726 524.059997 417.108842 524.059997 415.782826 
 C 524.059997 414.456811 523.533166 413.184927 522.595531 412.247293 
@@ -7138,7 +7138,7 @@ C 514.586829 413.184927 514.059997 414.456811 514.059997 415.782826
 C 514.059997 417.108842 514.586829 418.380726 515.524463 419.31836 
 C 516.462098 420.255995 517.733982 420.782826 519.059997 420.782826 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 412.892144 482.505786 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 412.892144 482.505786 
 C 414.218159 482.505786 415.490043 481.978955 416.427677 481.04132 
 C 417.365312 480.103686 417.892144 478.831802 417.892144 477.505786 
 C 417.892144 476.179771 417.365312 474.907887 416.427677 473.970252 
@@ -7148,7 +7148,7 @@ C 408.418975 474.907887 407.892144 476.179771 407.892144 477.505786
 C 407.892144 478.831802 408.418975 480.103686 409.35661 481.04132 
 C 410.294244 481.978955 411.566128 482.505786 412.892144 482.505786 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 378.000044 344.786569 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 378.000044 344.786569 
 L 380.500044 342.286569 
 L 383.000044 344.786569 
 L 385.500044 342.286569 
@@ -7161,7 +7161,7 @@ L 375.500044 337.286569
 L 378.000044 339.786569 
 L 375.500044 342.286569 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 356.854546 514.945805 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 356.854546 514.945805 
 C 358.180562 514.945805 359.452446 514.418974 360.39008 513.481339 
 C 361.327715 512.543704 361.854546 511.271821 361.854546 509.945805 
 C 361.854546 508.61979 361.327715 507.347906 360.39008 506.410271 
@@ -7171,7 +7171,7 @@ C 352.381378 507.347906 351.854546 508.61979 351.854546 509.945805
 C 351.854546 511.271821 352.381378 512.543704 353.319012 513.481339 
 C 354.256647 514.418974 355.528531 514.945805 356.854546 514.945805 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 288.642928 411.095327 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 288.642928 411.095327 
 L 291.142928 408.595327 
 L 293.642928 411.095327 
 L 296.142928 408.595327 
@@ -7184,7 +7184,7 @@ L 286.142928 403.595327
 L 288.642928 406.095327 
 L 286.142928 408.595327 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 396.336665 490.878521 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 396.336665 490.878521 
 C 397.662681 490.878521 398.934564 490.35169 399.872199 489.414055 
 C 400.809834 488.476421 401.336665 487.204537 401.336665 485.878521 
 C 401.336665 484.552506 400.809834 483.280622 399.872199 482.342987 
@@ -7194,7 +7194,7 @@ C 391.863497 483.280622 391.336665 484.552506 391.336665 485.878521
 C 391.336665 487.204537 391.863497 488.476421 392.801131 489.414055 
 C 393.738766 490.35169 395.01065 490.878521 396.336665 490.878521 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 270.207182 569.013296 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 270.207182 569.013296 
 C 271.533198 569.013296 272.805082 568.486465 273.742716 567.54883 
 C 274.680351 566.611196 275.207182 565.339312 275.207182 564.013296 
 C 275.207182 562.687281 274.680351 561.415397 273.742716 560.477762 
@@ -7204,7 +7204,7 @@ C 265.734014 561.415397 265.207182 562.687281 265.207182 564.013296
 C 265.207182 565.339312 265.734014 566.611196 266.671648 567.54883 
 C 267.609283 568.486465 268.881167 569.013296 270.207182 569.013296 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 665.303073 167.077595 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 665.303073 167.077595 
 L 667.803073 164.577595 
 L 670.303073 167.077595 
 L 672.803073 164.577595 
@@ -7217,7 +7217,7 @@ L 662.803073 159.577595
 L 665.303073 162.077595 
 L 662.803073 164.577595 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 356.661974 508.762228 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 356.661974 508.762228 
 C 357.98799 508.762228 359.259874 508.235397 360.197508 507.297762 
 C 361.135143 506.360128 361.661974 505.088244 361.661974 503.762228 
 C 361.661974 502.436213 361.135143 501.164329 360.197508 500.226694 
@@ -7227,7 +7227,7 @@ C 352.188806 501.164329 351.661974 502.436213 351.661974 503.762228
 C 351.661974 505.088244 352.188806 506.360128 353.12644 507.297762 
 C 354.064075 508.235397 355.335959 508.762228 356.661974 508.762228 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 527.858512 249.401358 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 527.858512 249.401358 
 L 530.358512 246.901358 
 L 532.858512 249.401358 
 L 535.358512 246.901358 
@@ -7240,7 +7240,7 @@ L 525.358512 241.901358
 L 527.858512 244.401358 
 L 525.358512 246.901358 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 287.089507 406.690349 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 287.089507 406.690349 
 L 289.589507 404.190349 
 L 292.089507 406.690349 
 L 294.589507 404.190349 
@@ -7253,7 +7253,7 @@ L 284.589507 399.190349
 L 287.089507 401.690349 
 L 284.589507 404.190349 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 436.95319 466.797202 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 436.95319 466.797202 
 C 438.279205 466.797202 439.551089 466.27037 440.488724 465.332736 
 C 441.426358 464.395101 441.95319 463.123218 441.95319 461.797202 
 C 441.95319 460.471187 441.426358 459.199303 440.488724 458.261668 
@@ -7263,7 +7263,7 @@ C 432.480021 459.199303 431.95319 460.471187 431.95319 461.797202
 C 431.95319 463.123218 432.480021 464.395101 433.417656 465.332736 
 C 434.35529 466.27037 435.627174 466.797202 436.95319 466.797202 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 384.042003 342.088333 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 384.042003 342.088333 
 L 386.542003 339.588333 
 L 389.042003 342.088333 
 L 391.542003 339.588333 
@@ -7276,7 +7276,7 @@ L 381.542003 334.588333
 L 384.042003 337.088333 
 L 381.542003 339.588333 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 522.383252 423.573666 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 522.383252 423.573666 
 C 523.709267 423.573666 524.981151 423.046835 525.918785 422.1092 
 C 526.85642 421.171566 527.383252 419.899682 527.383252 418.573666 
 C 527.383252 417.247651 526.85642 415.975767 525.918785 415.038132 
@@ -7286,7 +7286,7 @@ C 517.910083 415.975767 517.383252 417.247651 517.383252 418.573666
 C 517.383252 419.899682 517.910083 421.171566 518.847718 422.1092 
 C 519.785352 423.046835 521.057236 423.573666 522.383252 423.573666 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 216.729236 451.645123 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 216.729236 451.645123 
 L 219.229236 449.145123 
 L 221.729236 451.645123 
 L 224.229236 449.145123 
@@ -7299,7 +7299,7 @@ L 214.229236 444.145123
 L 216.729236 446.645123 
 L 214.229236 449.145123 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 502.337411 422.796817 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 502.337411 422.796817 
 C 503.663427 422.796817 504.935311 422.269985 505.872945 421.33235 
 C 506.81058 420.394716 507.337411 419.122832 507.337411 417.796817 
 C 507.337411 416.470801 506.81058 415.198917 505.872945 414.261283 
@@ -7309,7 +7309,7 @@ C 497.864243 415.198917 497.337411 416.470801 497.337411 417.796817
 C 497.337411 419.122832 497.864243 420.394716 498.801877 421.33235 
 C 499.739512 422.269985 501.011396 422.796817 502.337411 422.796817 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 518.581443 258.664621 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 518.581443 258.664621 
 L 521.081443 256.164621 
 L 523.581443 258.664621 
 L 526.081443 256.164621 
@@ -7322,7 +7322,7 @@ L 516.081443 251.164621
 L 518.581443 253.664621 
 L 516.081443 256.164621 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 434.567819 469.015692 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 434.567819 469.015692 
 C 435.893834 469.015692 437.165718 468.488861 438.103353 467.551226 
 C 439.040987 466.613592 439.567819 465.341708 439.567819 464.015692 
 C 439.567819 462.689677 439.040987 461.417793 438.103353 460.480159 
@@ -7332,7 +7332,7 @@ C 430.09465 461.417793 429.567819 462.689677 429.567819 464.015692
 C 429.567819 465.341708 430.09465 466.613592 431.032285 467.551226 
 C 431.96992 468.488861 433.241803 469.015692 434.567819 469.015692 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 352.493382 506.860445 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 352.493382 506.860445 
 C 353.819397 506.860445 355.091281 506.333614 356.028916 505.395979 
 C 356.96655 504.458345 357.493382 503.186461 357.493382 501.860445 
 C 357.493382 500.53443 356.96655 499.262546 356.028916 498.324911 
@@ -7342,7 +7342,7 @@ C 348.020213 499.262546 347.493382 500.53443 347.493382 501.860445
 C 347.493382 503.186461 348.020213 504.458345 348.957848 505.395979 
 C 349.895482 506.333614 351.167366 506.860445 352.493382 506.860445 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 396.07845 483.04183 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 396.07845 483.04183 
 C 397.404466 483.04183 398.676349 482.514999 399.613984 481.577364 
 C 400.551619 480.63973 401.07845 479.367846 401.07845 478.04183 
 C 401.07845 476.715815 400.551619 475.443931 399.613984 474.506296 
@@ -7352,7 +7352,7 @@ C 391.605282 475.443931 391.07845 476.715815 391.07845 478.04183
 C 391.07845 479.367846 391.605282 480.63973 392.542916 481.577364 
 C 393.480551 482.514999 394.752435 483.04183 396.07845 483.04183 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 472.580691 287.009535 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 472.580691 287.009535 
 L 475.080691 284.509535 
 L 477.580691 287.009535 
 L 480.080691 284.509535 
@@ -7365,7 +7365,7 @@ L 470.080691 279.509535
 L 472.580691 282.009535 
 L 470.080691 284.509535 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 313.621348 385.971031 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 313.621348 385.971031 
 L 316.121348 383.471031 
 L 318.621348 385.971031 
 L 321.121348 383.471031 
@@ -7378,7 +7378,7 @@ L 311.121348 378.471031
 L 313.621348 380.971031 
 L 311.121348 383.471031 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 339.809944 373.808045 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 339.809944 373.808045 
 L 342.309944 371.308045 
 L 344.809944 373.808045 
 L 347.309944 371.308045 
@@ -7391,7 +7391,7 @@ L 337.309944 366.308045
 L 339.809944 368.808045 
 L 337.309944 371.308045 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 374.07224 512.070426 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 374.07224 512.070426 
 C 375.398256 512.070426 376.67014 511.543595 377.607774 510.60596 
 C 378.545409 509.668325 379.07224 508.396442 379.07224 507.070426 
 C 379.07224 505.744411 378.545409 504.472527 377.607774 503.534892 
@@ -7401,7 +7401,7 @@ C 369.599072 504.472527 369.07224 505.744411 369.07224 507.070426
 C 369.07224 508.396442 369.599072 509.668325 370.536706 510.60596 
 C 371.474341 511.543595 372.746225 512.070426 374.07224 512.070426 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 471.863025 447.151474 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 471.863025 447.151474 
 C 473.189041 447.151474 474.460925 446.624642 475.398559 445.687008 
 C 476.336194 444.749373 476.863025 443.477489 476.863025 442.151474 
 C 476.863025 440.825458 476.336194 439.553574 475.398559 438.61594 
@@ -7411,7 +7411,7 @@ C 467.389857 439.553574 466.863025 440.825458 466.863025 442.151474
 C 466.863025 443.477489 467.389857 444.749373 468.327491 445.687008 
 C 469.265126 446.624642 470.53701 447.151474 471.863025 447.151474 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 322.39497 380.107201 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 322.39497 380.107201 
 L 324.89497 377.607201 
 L 327.39497 380.107201 
 L 329.89497 377.607201 
@@ -7424,7 +7424,7 @@ L 319.89497 372.607201
 L 322.39497 375.107201 
 L 319.89497 377.607201 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 486.760093 276.901488 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 486.760093 276.901488 
 L 489.260093 274.401488 
 L 491.760093 276.901488 
 L 494.260093 274.401488 
@@ -7437,7 +7437,7 @@ L 484.260093 269.401488
 L 486.760093 271.901488 
 L 484.260093 274.401488 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 367.373297 505.694155 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 367.373297 505.694155 
 C 368.699312 505.694155 369.971196 505.167323 370.908831 504.229689 
 C 371.846465 503.292054 372.373297 502.02017 372.373297 500.694155 
 C 372.373297 499.368139 371.846465 498.096256 370.908831 497.158621 
@@ -7447,7 +7447,7 @@ C 362.900129 498.096256 362.373297 499.368139 362.373297 500.694155
 C 362.373297 502.02017 362.900129 503.292054 363.837763 504.229689 
 C 364.775398 505.167323 366.047281 505.694155 367.373297 505.694155 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.403595 300.062729 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 449.403595 300.062729 
 L 451.903595 297.562729 
 L 454.403595 300.062729 
 L 456.903595 297.562729 
@@ -7460,7 +7460,7 @@ L 446.903595 292.562729
 L 449.403595 295.062729 
 L 446.903595 297.562729 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 365.899623 509.439501 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 365.899623 509.439501 
 C 367.225639 509.439501 368.497523 508.912669 369.435157 507.975035 
 C 370.372792 507.0374 370.899623 505.765516 370.899623 504.439501 
 C 370.899623 503.113485 370.372792 501.841601 369.435157 500.903967 
@@ -7470,7 +7470,7 @@ C 361.426455 501.841601 360.899623 503.113485 360.899623 504.439501
 C 360.899623 505.765516 361.426455 507.0374 362.36409 507.975035 
 C 363.301724 508.912669 364.573608 509.439501 365.899623 509.439501 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 387.816878 337.03545 
+" clip-path=url(#p6b18f9446c) style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 387.816878 337.03545 
 L 390.316878 334.53545 
 L 392.816878 337.03545 
 L 395.316878 334.53545 
@@ -7483,7 +7483,7 @@ L 385.316878 329.53545
 L 387.816878 332.03545 
 L 385.316878 334.53545 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 427.935313 309.660015 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> <path d="M 427.935313 309.660015 
 L 430.435313 307.160015 
 L 432.935313 309.660015 
 L 435.435313 307.160015 
@@ -7496,9 +7496,9 @@ L 425.435313 302.160015
 L 427.935313 304.660015 
 L 425.435313 307.160015 
 z
-" clip-path=url(#pdfac4b00ca) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> </g> <g id=matplotlib.axis_1> <g id=xtick_1> <g id=line2d_1> <defs> <path id=m38f990c40d d="M 0 0 
+" clip-path=url(#p6b18f9446c) style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8"></path> </g> <g id=matplotlib.axis_1> <g id=xtick_1> <g id=line2d_1> <defs> <path id=m179dab2d25 d="M 0 0 
 L 0 3.5 
-" style="stroke: #000000; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#m38f990c40d x=203.492792 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_1> <!-- −1 --> <g transform="translate(196.121698 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-2212 d="M 678 2272 
+" style="stroke: #000000; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#m179dab2d25 x=203.492792 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_1> <!-- −1 --> <g transform="translate(196.121698 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-2212 d="M 678 2272 
 L 4684 2272 
 L 4684 1741 
 L 678 1741 
@@ -7517,7 +7517,7 @@ L 3481 0
 L 794 0 
 L 794 531 
 z
-" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-31 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=xtick_2> <g id=line2d_2> <g> <use xlink:href=#m38f990c40d x=314.722027 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_2> <!-- 0 --> <g transform="translate(311.540777 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-30 d="M 2034 4250 
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-31 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=xtick_2> <g id=line2d_2> <g> <use xlink:href=#m179dab2d25 x=314.722027 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_2> <!-- 0 --> <g transform="translate(311.540777 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-30 d="M 2034 4250 
 Q 1547 4250 1301 3770 
 Q 1056 3291 1056 2328 
 Q 1056 1369 1301 889 
@@ -7537,7 +7537,7 @@ Q 422 1150 422 2328
 Q 422 3509 836 4129 
 Q 1250 4750 2034 4750 
 z
-" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> </g> </g> </g> <g id=xtick_3> <g id=line2d_3> <g> <use xlink:href=#m38f990c40d x=425.951263 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_3> <!-- 1 --> <g transform="translate(422.770013 655.398438) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> </g> </g> </g> <g id=xtick_4> <g id=line2d_4> <g> <use xlink:href=#m38f990c40d x=537.180499 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_4> <!-- 2 --> <g transform="translate(533.999249 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-32 d="M 1228 531 
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> </g> </g> </g> <g id=xtick_3> <g id=line2d_3> <g> <use xlink:href=#m179dab2d25 x=425.951263 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_3> <!-- 1 --> <g transform="translate(422.770013 655.398438) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> </g> </g> </g> <g id=xtick_4> <g id=line2d_4> <g> <use xlink:href=#m179dab2d25 x=537.180499 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_4> <!-- 2 --> <g transform="translate(533.999249 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-32 d="M 1228 531 
 L 3431 531 
 L 3431 0 
 L 469 0 
@@ -7560,7 +7560,7 @@ Q 3191 2616 2906 2266
 Q 2828 2175 2409 1742 
 Q 1991 1309 1228 531 
 z
-" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-32></use> </g> </g> </g> <g id=xtick_5> <g id=line2d_5> <g> <use xlink:href=#m38f990c40d x=648.409735 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_5> <!-- 3 --> <g transform="translate(645.228485 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-33 d="M 2597 2516 
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-32></use> </g> </g> </g> <g id=xtick_5> <g id=line2d_5> <g> <use xlink:href=#m179dab2d25 x=648.409735 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_5> <!-- 3 --> <g transform="translate(645.228485 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-33 d="M 2597 2516 
 Q 3050 2419 3304 2112 
 Q 3559 1806 3559 1356 
 Q 3559 666 3084 287 
@@ -7591,7 +7591,7 @@ Q 3450 4097 3450 3541
 Q 3450 3153 3228 2886 
 Q 3006 2619 2597 2516 
 z
-" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-33></use> </g> </g> </g> <g id=xtick_6> <g id=line2d_6> <g> <use xlink:href=#m38f990c40d x=759.638971 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_6> <!-- 4 --> <g transform="translate(756.457721 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-34 d="M 2419 4116 
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-33></use> </g> </g> </g> <g id=xtick_6> <g id=line2d_6> <g> <use xlink:href=#m179dab2d25 x=759.638971 y=640.8 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_6> <!-- 4 --> <g transform="translate(756.457721 655.398438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-34 d="M 2419 4116 
 L 825 1625 
 L 2419 1625 
 L 2419 4116 
@@ -7734,9 +7734,9 @@ Q 2397 3584 2469 3576
 Q 2541 3569 2628 3553 
 L 2631 2963 
 z
-" transform=scale(0.015625)></path> <path id=DejaVuSans-20 transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-46></use> <use xlink:href=#DejaVuSans-65 transform="translate(52.019531 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(113.542969 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(174.822266 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(214.03125 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(277.410156 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(316.273438 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(377.796875 0)"></use> <use xlink:href=#DejaVuSans-31 transform="translate(409.583984 0)"></use> </g> </g> </g> <g id=matplotlib.axis_2> <g id=ytick_1> <g id=line2d_7> <defs> <path id=m2d485155ab d="M 0 0 
+" transform=scale(0.015625)></path> <path id=DejaVuSans-20 transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-46></use> <use xlink:href=#DejaVuSans-65 transform="translate(52.019531 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(113.542969 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(174.822266 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(214.03125 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(277.410156 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(316.273438 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(377.796875 0)"></use> <use xlink:href=#DejaVuSans-31 transform="translate(409.583984 0)"></use> </g> </g> </g> <g id=matplotlib.axis_2> <g id=ytick_1> <g id=line2d_7> <defs> <path id=mc23f7130f3 d="M 0 0 
 L -3.5 0 
-" style="stroke: #000000; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#m2d485155ab x=108 y=620.587344 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_8> <!-- −3 --> <g transform="translate(86.257812 624.386563) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-33 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=ytick_2> <g id=line2d_8> <g> <use xlink:href=#m2d485155ab x=108 y=543.800641 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_9> <!-- −2 --> <g transform="translate(86.257812 547.599859) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-32 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=ytick_3> <g id=line2d_9> <g> <use xlink:href=#m2d485155ab x=108 y=467.013937 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_10> <!-- −1 --> <g transform="translate(86.257812 470.813156) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-31 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=ytick_4> <g id=line2d_10> <g> <use xlink:href=#m2d485155ab x=108 y=390.227233 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_11> <!-- 0 --> <g transform="translate(94.6375 394.026452) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> </g> </g> </g> <g id=ytick_5> <g id=line2d_11> <g> <use xlink:href=#m2d485155ab x=108 y=313.44053 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_12> <!-- 1 --> <g transform="translate(94.6375 317.239749) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> </g> </g> </g> <g id=ytick_6> <g id=line2d_12> <g> <use xlink:href=#m2d485155ab x=108 y=236.653826 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_13> <!-- 2 --> <g transform="translate(94.6375 240.453045) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-32></use> </g> </g> </g> <g id=ytick_7> <g id=line2d_13> <g> <use xlink:href=#m2d485155ab x=108 y=159.867123 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_14> <!-- 3 --> <g transform="translate(94.6375 163.666341) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-33></use> </g> </g> </g> <g id=text_15> <!-- Feature 2 --> <g transform="translate(80.178125 387.260156) rotate(-90) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-46></use> <use xlink:href=#DejaVuSans-65 transform="translate(52.019531 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(113.542969 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(174.822266 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(214.03125 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(277.410156 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(316.273438 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(377.796875 0)"></use> <use xlink:href=#DejaVuSans-32 transform="translate(409.583984 0)"></use> </g> </g> </g> <g id=line2d_14></g> <g id=line2d_15></g> <g id=patch_3> <path d="M 108 640.8 
+" style="stroke: #000000; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#mc23f7130f3 x=108 y=620.587344 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_8> <!-- −3 --> <g transform="translate(86.257812 624.386563) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-33 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=ytick_2> <g id=line2d_8> <g> <use xlink:href=#mc23f7130f3 x=108 y=543.800641 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_9> <!-- −2 --> <g transform="translate(86.257812 547.599859) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-32 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=ytick_3> <g id=line2d_9> <g> <use xlink:href=#mc23f7130f3 x=108 y=467.013937 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_10> <!-- −1 --> <g transform="translate(86.257812 470.813156) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-2212></use> <use xlink:href=#DejaVuSans-31 transform="translate(83.789062 0)"></use> </g> </g> </g> <g id=ytick_4> <g id=line2d_10> <g> <use xlink:href=#mc23f7130f3 x=108 y=390.227233 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_11> <!-- 0 --> <g transform="translate(94.6375 394.026452) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> </g> </g> </g> <g id=ytick_5> <g id=line2d_11> <g> <use xlink:href=#mc23f7130f3 x=108 y=313.44053 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_12> <!-- 1 --> <g transform="translate(94.6375 317.239749) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> </g> </g> </g> <g id=ytick_6> <g id=line2d_12> <g> <use xlink:href=#mc23f7130f3 x=108 y=236.653826 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_13> <!-- 2 --> <g transform="translate(94.6375 240.453045) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-32></use> </g> </g> </g> <g id=ytick_7> <g id=line2d_13> <g> <use xlink:href=#mc23f7130f3 x=108 y=159.867123 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_14> <!-- 3 --> <g transform="translate(94.6375 163.666341) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-33></use> </g> </g> </g> <g id=text_15> <!-- Feature 2 --> <g transform="translate(80.178125 387.260156) rotate(-90) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-46></use> <use xlink:href=#DejaVuSans-65 transform="translate(52.019531 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(113.542969 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(174.822266 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(214.03125 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(277.410156 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(316.273438 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(377.796875 0)"></use> <use xlink:href=#DejaVuSans-32 transform="translate(409.583984 0)"></use> </g> </g> </g> <g id=line2d_14></g> <g id=line2d_15></g> <g id=patch_3> <path d="M 108 640.8 
 L 108 86.4 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"></path> </g> <g id=patch_4> <path d="M 777.6 640.8 
 L 777.6 86.4 
@@ -8018,7 +8018,7 @@ Q 730.2375 91.4 730.2375 93.4
 L 730.2375 121.75625 
 Q 730.2375 123.75625 732.2375 123.75625 
 z
-" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"></path> </g> <g id=line2d_16> <defs> <path id=m214c035d7b d="M 0 5 
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"></path> </g> <g id=line2d_16> <defs> <path id=mdd3e63539c d="M 0 5 
 C 1.326016 5 2.597899 4.473168 3.535534 3.535534 
 C 4.473168 2.597899 5 1.326016 5 0 
 C 5 -1.326016 4.473168 -2.597899 3.535534 -3.535534 
@@ -8028,7 +8028,7 @@ C -4.473168 -2.597899 -5 -1.326016 -5 0
 C -5 1.326016 -4.473168 2.597899 -3.535534 3.535534 
 C -2.597899 4.473168 -1.326016 5 0 5 
 z
-" style="stroke: #ffffff; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#m214c035d7b x=744.2375 y=99.498437 style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></use> </g> </g> <g id=text_17> <!-- 0 --> <g transform="translate(762.2375 102.998437) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> </g> </g> <g id=line2d_17> <defs> <path id=mb0a9c8d35d d="M -2.5 5 
+" style="stroke: #ffffff; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#mdd3e63539c x=744.2375 y=99.498437 style="fill: #4c72b0; stroke: #ffffff; stroke-width: 0.8"></use> </g> </g> <g id=text_17> <!-- 0 --> <g transform="translate(762.2375 102.998437) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> </g> </g> <g id=line2d_17> <defs> <path id=m8fd1211bba d="M -2.5 5 
 L 0 2.5 
 L 2.5 5 
 L 5 2.5 
@@ -8041,7 +8041,7 @@ L -5 -2.5
 L -2.5 0 
 L -5 2.5 
 z
-" style="stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"></path> </defs> <g> <use xlink:href=#mb0a9c8d35d x=744.2375 y=114.176562 style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"></use> </g> </g> <g id=text_18> <!-- 1 --> <g transform="translate(762.2375 117.676562) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> </g> </g> </g> </g> </g> <defs> <clippath id=pdfac4b00ca> <rect x=108 y=86.4 width=669.6 height=554.4></rect> </clippath> </defs> </svg> </p> </div> <div class=tabbed-block> <div class="language-python highlight"><pre><span></span><code><span id=__span-1-1><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
+" style="stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"></path> </defs> <g> <use xlink:href=#m8fd1211bba x=744.2375 y=114.176562 style="fill: #dd8452; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"></use> </g> </g> <g id=text_18> <!-- 1 --> <g transform="translate(762.2375 117.676562) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> </g> </g> </g> </g> </g> <defs> <clippath id=p6b18f9446c> <rect x=108 y=86.4 width=669.6 height=554.4></rect> </clippath> </defs> </svg> </p> </div> <div class=tabbed-block> <div class="language-python highlight"><pre><span></span><code><span id=__span-1-1><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=kn>import</span><span class=w> </span><span class=nn>numpy</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>np</span>
 </span><span id=__span-1-2><a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>import</span><span class=w> </span><span class=nn>matplotlib.pyplot</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>plt</span>
 </span><span id=__span-1-3><a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a><span class=kn>from</span><span class=w> </span><span class=nn>io</span><span class=w> </span><span class=kn>import</span> <span class=n>StringIO</span>
 </span><span id=__span-1-4><a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a><span class=kn>from</span><span class=w> </span><span class=nn>sklearn.datasets</span><span class=w> </span><span class=kn>import</span> <span class=n>make_classification</span>

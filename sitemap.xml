@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://hsandmann.github.io/ml/</loc>
+         <loc>https://mgabriel4.github.io/machine-learning-grupo4/</loc>
          <lastmod>2025-10-01</lastmod>
     </url>
     <url>
-         <loc>https://hsandmann.github.io/ml/classes/decision_tree/</loc>
+         <loc>https://mgabriel4.github.io/machine-learning-grupo4/classes/decision_tree/</loc>
          <lastmod>2025-10-01</lastmod>
     </url>
     <url>
-         <loc>https://hsandmann.github.io/ml/classes/kmeans/</loc>
+         <loc>https://mgabriel4.github.io/machine-learning-grupo4/classes/kmeans/</loc>
          <lastmod>2025-10-01</lastmod>
     </url>
     <url>
-         <loc>https://hsandmann.github.io/ml/classes/knn/</loc>
+         <loc>https://mgabriel4.github.io/machine-learning-grupo4/classes/knn/</loc>
          <lastmod>2025-10-01</lastmod>
     </url>
 </urlset>
