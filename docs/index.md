@@ -8,6 +8,5 @@ Este projeto tem como objetivo aplicar técnicas de aprendizado de máquina para
 
 - Bianca Fagundes - [araujozb](https://github.com/araujozb)
 - Gustavo Dutra - [snowdutra](https://github.com/snowdutra)
-- Luzivania Bonfim - [bonfim1](https://github.com/bonfim1)
 - Maria Gabriela Vieira - [mgabriel4](https://github.com/mgabriel4)
 - Mateus Colmeal - [colmeal](https://github.com/colmeal)
