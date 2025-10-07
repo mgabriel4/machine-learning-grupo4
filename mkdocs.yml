@@ -9,29 +9,29 @@ theme:
     # primary: grey
     # Light mode
     - scheme: default
-      primary: deep blue
+      primary: orange
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: deep blue
+      primary: orange
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep blue
+      scheme: default 
+      primary: orange
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: deep blue
+      primary: orange
       scheme: slate
       toggle:
         icon: material/toggle-switch
@@ -46,6 +46,8 @@ theme:
     - navigation.top
     - navigation.path
     - navigation.tracking
+  navigation:
+    expand: false
   icon:
     # logo: assets/images/devops
     admonition:
@@ -58,16 +60,13 @@ theme:
       warning: fontawesome/solid/triangle-exclamation
       failure: fontawesome/solid/bomb
       danger: fontawesome/solid/skull
-      bug: fontawesome/solid/robot
-      example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
-  logo: assets/images/logo.png
 
 markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
-  - markdown_grid_tables:
+  - markdown_grid_tables
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details
@@ -75,42 +74,47 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.inlinehilite
-  - pymdownx.blocks.caption
   - pymdownx.snippets:
       url_download: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: python
+          class: python
+          validator: !!python/name:markdown_exec.validator
+          format: !!python/name:markdown_exec.formatter
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
-      custom_checkbox: true
+      custom_checkbox: true  
   - footnotes
-  - neoteroi.timeline
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.blocks.caption
   - tables
-
-
+      
 plugins:
+  # - git-committers:
+  #     repository: snowdutra/Machine-Learning
+  #     branch: main
   - glightbox
   - git-revision-date-localized:
       enable_creation_date: true
-  - git-authors
-  - git-committers:
-      repository: insper/ann-dl
-      branch: main
+  # - git-authors
   - search
+  - badges
   - minify:
       minify_html: true
-  - badges
   - markdown-exec
-  - mkdocs-pdf
   - render_swagger:
       allow_arbitrary_locations : true
   - termynal:
@@ -119,21 +123,31 @@ plugins:
         - ">"
 
 extra_javascript:
-  - assets/javascripts/mathjax.js
+  - https://unpkg.com/mathjax/es5/tex-mml-chtml.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-extra_css:
-  - assets/stylesheets/neoteroi-mkdocs.min.css
-  - assets/stylesheets/neoteroi-timeline.css
-  - assets/stylesheets/extra.css
-
+  - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
+  - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
 
 nav:
   - Home: ./index.md
-  - 1. Decision Tree: 
-    - Projeto: ./classes/decision_tree/index.md
-  - 2. KNN: 
-    - Projeto: ./classes/knn/index.md
-  - 3. K-Means: 
-    - Projeto: ./classes/kmeans/index.md
+  - Árvore de Decisão:
+    - 01 - Exploração: ./arvore_decisao/01_exploracao.md
+    - 02 - Pré-processamento: ./arvore_decisao/02_preprocessamento.md
+    - 03 - Divisão treino/teste: ./arvore_decisao/03_divisao.md
+    - 04 - Treinamento: ./arvore_decisao/04_treinamento.md
+    - 05 - Avaliação: ./arvore_decisao/05_avaliacao.md
+    - 06 - Visualização: ./arvore_decisao/06_visualizacao.md
+  - KNN:
+    - 01 - Exploração: ./knn/01_exploracao.md
+    - 02 - Pré-processamento: ./knn/02_preprocessamento.md
+    - 03 - GridSearch: ./knn/03_elbow_silhouette.md
+    - 04 - Treinamento: ./knn/04_treinamento.md
+    - 05 - Visualização: ./knn/05_visualizacao.md
+  - KMeans:
+    - 01 - Exploração: ./kmeans/01_exploracao.md
+    - 02 - Pré-processamento: ./kmeans/02_preprocessamento.md
+    - 03 - Elbow e Silhouette: ./kmeans/03_elbow_silhouette.md
+    - 04 - Treinamento: ./kmeans/04_treinamento.md
+    - 05 - Visualização: ./kmeans/05_visualizacao.md
+  - Relatório Final: ./relatorio_final/relatorio_final.md

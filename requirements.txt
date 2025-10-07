@@ -1,5 +1,5 @@
 markdown-grid-tables
-markdown-exec
+markdown-exec[ansi]
 mkdocs-badges
 mkdocs-material
 mkdocs-material-extensions
@@ -9,15 +9,12 @@ mkdocs-git-authors-plugin
 mkdocs-git-committers-plugin-2
 mkdocs-git-revision-date-localized-plugin
 mkdocs-render-swagger-plugin
-mkdocs-pdf
-neoteroi-mkdocs
 termynal
 matplotlib
-matplotlib_venn
 numpy
 pandas
-scikit-learn
-seaborn
-tabulate
 yfinance
-graphviz
+scikit-learn
+kagglehub
+seaborn
+joblib
