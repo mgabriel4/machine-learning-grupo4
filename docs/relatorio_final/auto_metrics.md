@@ -1,5 +1,5 @@
 # Métricas Automatizadas
-_Gerado em: 2025-10-07T13:28:05.134775Z_
+_Gerado em: 2025-10-09T18:02:45.056990Z_
 
 ### KNN
 
@@ -19,5 +19,11 @@ _Gerado em: 2025-10-07T13:28:05.134775Z_
 | F1 | 0.8840 | 0.3409 |  |  |  |
 | Support | 247 | 47 |  |  |  |
 
-K-Means pulado.
+### K-Means (Clustering)
+
+| Métrica | Valor |
+|---------|------:|
+| Silhouette | 0.13125590433462198 |
+| Davies-Bouldin | 2.6053685528569575 |
+| Calinski-Harabasz | 192.911771815812 |
 
