@@ -1,0 +1,22 @@
+|--- OverTime_No <= 0.50
+|   |--- MonthlyIncome <= -0.86
+|   |   |--- DailyRate <= 0.32
+|   |   |   |--- class: 1
+|   |   |--- DailyRate >  0.32
+|   |   |   |--- class: 0
+|   |--- MonthlyIncome >  -0.86
+|   |   |--- MaritalStatus_Single <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- MaritalStatus_Single >  0.50
+|   |   |   |--- class: 0
+|--- OverTime_No >  0.50
+|   |--- TotalWorkingYears <= -1.13
+|   |   |--- JobRole_Research Scientist <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- JobRole_Research Scientist >  0.50
+|   |   |   |--- class: 0
+|   |--- TotalWorkingYears >  -1.13
+|   |   |--- WorkLifeBalance <= -1.79
+|   |   |   |--- class: 0
+|   |   |--- WorkLifeBalance >  -1.79
+|   |   |   |--- class: 0

@@ -1,0 +1,241 @@
+|--- TotalWorkingYears <= -1.14
+|   |--- JobRole_Research Scientist <= 0.50
+|   |   |--- Age <= -0.27
+|   |   |   |--- HourlyRate <= -0.61
+|   |   |   |   |--- Age <= -1.80
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- Age >  -1.80
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- HourlyRate >  -0.61
+|   |   |   |   |--- MaritalStatus_Divorced <= 0.50
+|   |   |   |   |   |--- DistanceFromHome <= 0.57
+|   |   |   |   |   |   |--- MonthlyIncome <= -0.90
+|   |   |   |   |   |   |   |--- Gender_Female <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- Gender_Female >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- MonthlyIncome >  -0.90
+|   |   |   |   |   |   |   |--- TotalWorkingYears <= -1.27
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- TotalWorkingYears >  -1.27
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- DistanceFromHome >  0.57
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- MaritalStatus_Divorced >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- Age >  -0.27
+|   |   |   |--- class: 0
+|   |--- JobRole_Research Scientist >  0.50
+|   |   |--- OverTime_Yes <= 0.50
+|   |   |   |--- HourlyRate <= -1.52
+|   |   |   |   |--- class: 1
+|   |   |   |--- HourlyRate >  -1.52
+|   |   |   |   |--- class: 0
+|   |   |--- OverTime_Yes >  0.50
+|   |   |   |--- class: 1
+|--- TotalWorkingYears >  -1.14
+|   |--- OverTime_No <= 0.50
+|   |   |--- MonthlyIncome <= -0.87
+|   |   |   |--- DailyRate <= -0.67
+|   |   |   |   |--- class: 1
+|   |   |   |--- DailyRate >  -0.67
+|   |   |   |   |--- YearsAtCompany <= -0.58
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- YearsAtCompany >  -0.58
+|   |   |   |   |   |--- HourlyRate <= -0.44
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- HourlyRate >  -0.44
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- MonthlyIncome >  -0.87
+|   |   |   |--- EnvironmentSatisfaction <= -0.20
+|   |   |   |   |--- StockOptionLevel <= -0.34
+|   |   |   |   |   |--- NumCompaniesWorked <= 1.53
+|   |   |   |   |   |   |--- JobInvolvement <= -1.76
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- JobInvolvement >  -1.76
+|   |   |   |   |   |   |   |--- DistanceFromHome <= 0.26
+|   |   |   |   |   |   |   |   |--- MonthlyIncome <= -0.58
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- MonthlyIncome >  -0.58
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- DistanceFromHome >  0.26
+|   |   |   |   |   |   |   |   |--- BusinessTravel_Travel_Rarely <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- BusinessTravel_Travel_Rarely >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- NumCompaniesWorked >  1.53
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- StockOptionLevel >  -0.34
+|   |   |   |   |   |--- MonthlyIncome <= -0.69
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- MonthlyIncome >  -0.69
+|   |   |   |   |   |   |--- DailyRate <= 0.46
+|   |   |   |   |   |   |   |--- BusinessTravel_Travel_Frequently <= 0.50
+|   |   |   |   |   |   |   |   |--- Age <= -1.20
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- Age >  -1.20
+|   |   |   |   |   |   |   |   |   |--- YearsSinceLastPromotion <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- YearsSinceLastPromotion >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- BusinessTravel_Travel_Frequently >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- DailyRate >  0.46
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- EnvironmentSatisfaction >  -0.20
+|   |   |   |   |--- MaritalStatus_Single <= 0.50
+|   |   |   |   |   |--- TrainingTimesLastYear <= -1.80
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- TrainingTimesLastYear >  -1.80
+|   |   |   |   |   |   |--- TrainingTimesLastYear <= 2.18
+|   |   |   |   |   |   |   |--- HourlyRate <= -1.18
+|   |   |   |   |   |   |   |   |--- JobRole_Laboratory Technician <= 0.50
+|   |   |   |   |   |   |   |   |   |--- YearsWithCurrManager <= -1.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- YearsWithCurrManager >  -1.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- JobRole_Laboratory Technician >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- HourlyRate >  -1.18
+|   |   |   |   |   |   |   |   |--- MonthlyIncome <= 2.86
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- MonthlyIncome >  2.86
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- TrainingTimesLastYear >  2.18
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- MaritalStatus_Single >  0.50
+|   |   |   |   |   |--- PercentSalaryHike <= -0.75
+|   |   |   |   |   |   |--- MonthlyRate <= 1.57
+|   |   |   |   |   |   |   |--- DistanceFromHome <= -0.84
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- DistanceFromHome >  -0.84
+|   |   |   |   |   |   |   |   |--- HourlyRate <= 0.05
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- HourlyRate >  0.05
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- MonthlyRate >  1.57
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- PercentSalaryHike >  -0.75
+|   |   |   |   |   |   |--- HourlyRate <= 0.88
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- HourlyRate >  0.88
+|   |   |   |   |   |   |   |--- class: 0
+|   |--- OverTime_No >  0.50
+|   |   |--- NumCompaniesWorked <= 0.73
+|   |   |   |--- BusinessTravel_Non-Travel <= 0.50
+|   |   |   |   |--- WorkLifeBalance <= -1.75
+|   |   |   |   |   |--- DailyRate <= -0.95
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- DailyRate >  -0.95
+|   |   |   |   |   |   |--- MonthlyIncome <= -0.49
+|   |   |   |   |   |   |   |--- NumCompaniesWorked <= -0.48
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- NumCompaniesWorked >  -0.48
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- MonthlyIncome >  -0.49
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- WorkLifeBalance >  -1.75
+|   |   |   |   |   |--- JobRole_Sales Representative <= 0.50
+|   |   |   |   |   |   |--- Age <= -0.93
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- Age >  -0.93
+|   |   |   |   |   |   |   |--- DistanceFromHome <= 0.63
+|   |   |   |   |   |   |   |   |--- YearsSinceLastPromotion <= 0.41
+|   |   |   |   |   |   |   |   |   |--- HourlyRate <= 0.64
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- HourlyRate >  0.64
+|   |   |   |   |   |   |   |   |   |   |--- MaritalStatus_Married <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- MaritalStatus_Married >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- YearsSinceLastPromotion >  0.41
+|   |   |   |   |   |   |   |   |   |--- Age <= 0.93
+|   |   |   |   |   |   |   |   |   |   |--- MonthlyIncome <= 0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- MonthlyIncome >  0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- Age >  0.93
+|   |   |   |   |   |   |   |   |   |   |--- TotalWorkingYears <= 0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- TotalWorkingYears >  0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- DistanceFromHome >  0.63
+|   |   |   |   |   |   |   |   |--- EnvironmentSatisfaction <= -1.12
+|   |   |   |   |   |   |   |   |   |--- HourlyRate <= 1.52
+|   |   |   |   |   |   |   |   |   |   |--- TotalWorkingYears <= 0.47
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- TotalWorkingYears >  0.47
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- HourlyRate >  1.52
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- EnvironmentSatisfaction >  -1.12
+|   |   |   |   |   |   |   |   |   |--- DailyRate <= -1.10
+|   |   |   |   |   |   |   |   |   |   |--- YearsSinceLastPromotion <= 0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- YearsSinceLastPromotion >  0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- DailyRate >  -1.10
+|   |   |   |   |   |   |   |   |   |   |--- YearsWithCurrManager <= 2.61
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- YearsWithCurrManager >  2.61
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- JobRole_Sales Representative >  0.50
+|   |   |   |   |   |   |--- DailyRate <= 1.51
+|   |   |   |   |   |   |   |--- YearsWithCurrManager <= -1.04
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- YearsWithCurrManager >  -1.04
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- DailyRate >  1.51
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- BusinessTravel_Non-Travel >  0.50
+|   |   |   |   |--- class: 0
+|   |   |--- NumCompaniesWorked >  0.73
+|   |   |   |--- Age <= 0.05
+|   |   |   |   |--- StockOptionLevel <= -0.34
+|   |   |   |   |   |--- JobSatisfaction <= -1.10
+|   |   |   |   |   |   |--- Age <= -1.04
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- Age >  -1.04
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- JobSatisfaction >  -1.10
+|   |   |   |   |   |   |--- EducationField_Technical Degree <= 0.50
+|   |   |   |   |   |   |   |--- DistanceFromHome <= -0.84
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- DistanceFromHome >  -0.84
+|   |   |   |   |   |   |   |   |--- EducationField_Other <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- EducationField_Other >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- EducationField_Technical Degree >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- StockOptionLevel >  -0.34
+|   |   |   |   |   |--- PercentSalaryHike <= -0.20
+|   |   |   |   |   |   |--- YearsAtCompany <= -0.42
+|   |   |   |   |   |   |   |--- MonthlyIncome <= -0.88
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- MonthlyIncome >  -0.88
+|   |   |   |   |   |   |   |   |--- Gender_Female <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- Gender_Female >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- YearsAtCompany >  -0.42
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- PercentSalaryHike >  -0.20
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- Age >  0.05
+|   |   |   |   |--- YearsInCurrentRole <= -0.49
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- YearsInCurrentRole >  -0.49
+|   |   |   |   |   |--- JobInvolvement <= -1.76
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- JobInvolvement >  -1.76
+|   |   |   |   |   |   |--- StockOptionLevel <= 0.84
+|   |   |   |   |   |   |   |--- MonthlyIncome <= -0.90
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- MonthlyIncome >  -0.90
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- StockOptionLevel >  0.84
+|   |   |   |   |   |   |   |--- YearsInCurrentRole <= 1.06
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- YearsInCurrentRole >  1.06
+|   |   |   |   |   |   |   |   |--- class: 0

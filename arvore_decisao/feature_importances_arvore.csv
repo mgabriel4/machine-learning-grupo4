@@ -1,0 +1,52 @@
+,importance
+TotalWorkingYears,0.11360343704818977
+MonthlyIncome,0.1122885302346584
+HourlyRate,0.08390738791873216
+Age,0.07804393771824449
+DailyRate,0.05517409482706958
+OverTime_No,0.05478759362813149
+DistanceFromHome,0.04077376989027586
+StockOptionLevel,0.04002360705732124
+NumCompaniesWorked,0.03971037825165706
+EnvironmentSatisfaction,0.03536961977104849
+YearsSinceLastPromotion,0.03055967698414691
+PercentSalaryHike,0.02990951451703675
+YearsWithCurrManager,0.028817629402962147
+YearsAtCompany,0.02542719795725392
+JobInvolvement,0.022959833914356638
+YearsInCurrentRole,0.020005795237003646
+TrainingTimesLastYear,0.017938729638622083
+JobRole_Research Scientist,0.015953217555209023
+JobSatisfaction,0.015579695167331249
+Gender_Female,0.014750419280466552
+OverTime_Yes,0.0124819410063978
+MaritalStatus_Divorced,0.011910881115798768
+EducationField_Medical,0.011027737167041305
+MaritalStatus_Single,0.010789383027481614
+BusinessTravel_Non-Travel,0.010347358377182217
+WorkLifeBalance,0.009860705231141059
+EducationField_Technical Degree,0.008857571688968058
+BusinessTravel_Travel_Frequently,0.008492439831882727
+EducationField_Other,0.008437544393577254
+JobRole_Sales Representative,0.00739318067693813
+BusinessTravel_Travel_Rarely,0.007005433970085249
+JobRole_Laboratory Technician,0.006384431601318142
+MonthlyRate,0.006271613101701798
+MaritalStatus_Married,0.005155712810768338
+JobLevel,0.0
+PerformanceRating,0.0
+RelationshipSatisfaction,0.0
+Education,0.0
+Department_Sales,0.0
+Department_Research & Development,0.0
+Department_Human Resources,0.0
+EducationField_Human Resources,0.0
+EducationField_Life Sciences,0.0
+EducationField_Marketing,0.0
+JobRole_Manufacturing Director,0.0
+JobRole_Research Director,0.0
+JobRole_Human Resources,0.0
+Gender_Male,0.0
+JobRole_Healthcare Representative,0.0
+JobRole_Manager,0.0
+JobRole_Sales Executive,0.0
