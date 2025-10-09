@@ -152,4 +152,4 @@ nav:
     - 05 - Visualização: ./kmeans/05_visualizacao.md
   - Relatório: 
     - Relatório Final: ./relatorio_final/relatorio_final.md
-    - Auto Métricas: ./relatorio_final/auto_metricas.md
+    - Auto Métricas: ./relatorio_final/auto_metrics.md
