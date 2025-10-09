@@ -150,4 +150,6 @@ nav:
     - 03 - Elbow e Silhouette: ./kmeans/03_elbow_silhouette.md
     - 04 - Treinamento: ./kmeans/04_treinamento.md
     - 05 - Visualização: ./kmeans/05_visualizacao.md
-  - Relatório Final: ./relatorio_final/relatorio_final.md
+  - Relatório: 
+    - Relatório Final: ./relatorio_final/relatorio_final.md
+    - Auto Métricas: ./relatorio_final/auto_metricas.md
