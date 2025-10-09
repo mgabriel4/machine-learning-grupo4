@@ -1,5 +1,5 @@
 # Métricas Automatizadas
-_Gerado em: 2025-10-09T18:02:45.056990Z_
+_Gerado em: 2025-10-09
 
 ### KNN
 
