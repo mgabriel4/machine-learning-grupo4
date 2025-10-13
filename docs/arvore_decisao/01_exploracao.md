@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 01 - Exploração dos Dados
 
 ## Objetivo

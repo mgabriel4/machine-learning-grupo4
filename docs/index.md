@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # Machine Learning
 
 Página inicial do projeto de Machine Learning do Grupo 4 do curso de Machine Learning da ESPM.

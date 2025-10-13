@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 03 - Elbow & Silhouette (Seleção de K)
 
 Avaliação interna do número de clusters usando Inertia (elbow), Silhouette e complemento com Davies-Bouldin.

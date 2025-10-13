@@ -1,4 +1,9 @@
 ---
+hide:
+- toc
+---
+
+---
 title: Relatório Final - Machine Learning Grupo 4
 ---
 

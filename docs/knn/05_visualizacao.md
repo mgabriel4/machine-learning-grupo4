@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 05 - Visualização (KNN)
 
 Este capítulo documenta e interpreta as principais visualizações geradas durante a análise e avaliação do modelo KNN para `Attrition`. O foco não é apenas mostrar figuras, mas extrair implicações acionáveis para melhoria do modelo e entendimento dos dados.

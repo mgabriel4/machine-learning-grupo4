@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 04 - Treinamento
 
 Objetivo

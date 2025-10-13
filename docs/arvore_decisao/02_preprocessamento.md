@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 02 - Pré-processamento
 
 Objetivo

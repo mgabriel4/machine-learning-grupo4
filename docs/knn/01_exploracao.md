@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 01 - Exploração (KNN)
 
 Exploração inicial e estruturada do dataset utilizado para treinar o modelo KNN de `Attrition`.

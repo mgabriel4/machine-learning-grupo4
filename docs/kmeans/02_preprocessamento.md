@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 02 - Pré-processamento (K-Means)
 
 Esta etapa descreve como o conjunto de atributos foi preparado antes da aplicação do algoritmo K-Means.

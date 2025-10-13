@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 02 - Pré-processamento (KNN)
 
 Esta etapa transforma o dataset bruto em uma matriz de atributos adequada ao K-Nearest Neighbors, garantindo comparabilidade das escalas e representação não ordinal das variáveis categóricas.

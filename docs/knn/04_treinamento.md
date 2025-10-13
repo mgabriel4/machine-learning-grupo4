@@ -1,4 +1,9 @@
-# 04 - Treinamento (KNN)
+---
+hide:
+- toc
+---# 04 - Treinamento (KNN)
+
+
 
 ## Objetivo
 

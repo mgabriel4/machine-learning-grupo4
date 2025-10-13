@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 04 - Treinamento Final (K-Means)
 
 Documento de consolidação do modelo K-Means na configuração base (K=2) com análise dos clusters obtidos.

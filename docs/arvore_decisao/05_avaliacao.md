@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 05 - Avaliação
 
 Objetivo

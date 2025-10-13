@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 01 - Exploração dos Dados (K-Means)
 
 Esta etapa estabelece a linha de base estrutural do dataset antes da construção do pipeline de clustering (K-Means).

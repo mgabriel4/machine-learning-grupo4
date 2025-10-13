@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 03 - Divisão Treino / Teste
 
 ## Objetivo

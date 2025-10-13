@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 03 - Seleção de Hiperparâmetros (KNN)
 
 Este documento descreve a busca de hiperparâmetros do KNN, critérios de avaliação e interpretação dos resultados obtidos via validação cruzada estratificada.

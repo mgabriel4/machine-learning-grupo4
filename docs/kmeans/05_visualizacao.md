@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # 05 - Visualização e Relatório (K-Means)
 
 Consolidação gráfica e interpretativa dos resultados do clustering baseline (K=2), incluindo pureza em relação ao atributo `Attrition`.
