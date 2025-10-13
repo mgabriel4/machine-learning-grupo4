@@ -3,10 +3,6 @@ hide:
 - toc
 ---
 
----
-title: Relatório Final - Machine Learning Grupo 4
----
-
 # Relatório Final
 
 Este documento consolida o trabalho realizado no projeto: Análise exploratória, pré-processamento, treinamento e avaliação de modelos (Árvore de Decisão, KNN e K-Means). Inclui métricas principais, visualizações geradas e recomendações de melhoria.
