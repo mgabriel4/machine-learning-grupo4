@@ -67,7 +67,7 @@ Foram escolhidos três algoritmos de regressão:
 
 - **Random Forest:** Selecionada por ser um ensemble robusto, reduzindo o risco de overfitting e melhorando a generalização em relação à árvore única.
 
-- **KNN Ajustado:** Utilizado para explorar um método baseado em instâncias, com ajuste de hiperparâmetros e normalização, permitindo avaliar o impacto da proximidade entre amostras.
+- **KNN:** Utilizado para explorar um método baseado em instâncias, com ajuste de hiperparâmetros e normalização, permitindo avaliar o impacto da proximidade entre amostras.
 
 A escolha considerou a natureza dos dados (tabulares, com variáveis numéricas e categóricas) e o objetivo de prever valores contínuos de preço.
 
@@ -164,7 +164,7 @@ A tabela abaixo resume as principais métricas de cada modelo:
 |--------------------|--------|--------|-------|
 | Árvore de Decisão  | ~70    | ~5,4   | ~0,82 |
 | Random Forest      | ~50    | ~4,8   | ~0,88 |
-| KNN Ajustado Extra | ~220   | ~9,8   | ~0,45 |
+| KNN | ~220   | ~9,8   | ~0,45 |
 
 Esses valores mostram que, para este conjunto de dados, modelos de ensemble como o Random Forest são mais indicados para tarefas de regressão, enquanto o KNN pode ser útil em cenários específicos, especialmente após ajustes.
 
