@@ -131,25 +131,25 @@ extra_javascript:
 
 nav:
   - Home: ./index.md
-  - Árvore de Decisão:
+  - Project I / Árvore de Decisão:
     - 01 - Exploração: ./arvore_decisao/01_exploracao.md
     - 02 - Pré-processamento: ./arvore_decisao/02_preprocessamento.md
     - 03 - Divisão treino/teste: ./arvore_decisao/03_divisao.md
     - 04 - Treinamento: ./arvore_decisao/04_treinamento.md
     - 05 - Avaliação: ./arvore_decisao/05_avaliacao.md
     - 06 - Visualização: ./arvore_decisao/06_visualizacao.md
-  - KNN:
+  - Project I / KNN:
     - 01 - Exploração: ./knn/01_exploracao.md
     - 02 - Pré-processamento: ./knn/02_preprocessamento.md
     - 03 - GridSearch: ./knn/03_elbow_silhouette.md
     - 04 - Treinamento: ./knn/04_treinamento.md
     - 05 - Visualização: ./knn/05_visualizacao.md
-  - KMeans:
+  - Project I / KMeans:
     - 01 - Exploração: ./kmeans/01_exploracao.md
     - 02 - Pré-processamento: ./kmeans/02_preprocessamento.md
     - 03 - Elbow e Silhouette: ./kmeans/03_elbow_silhouette.md
     - 04 - Treinamento: ./kmeans/04_treinamento.md
     - 05 - Visualização: ./kmeans/05_visualizacao.md
-  - Relatório: 
+  - Project I / Relatório: 
     - Relatório Final: ./relatorio_final/relatorio_final.md
     - Auto Métricas: ./relatorio_final/auto_metrics.md
